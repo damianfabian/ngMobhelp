@@ -1,0 +1,13 @@
+<div class="login-component">
+    <div class="login-component__card">
+
+        <div class="login-component__card-title">
+        <h1>Please Sign In</h1>
+        </div>
+
+        <div class="login-component__content">
+            <app-sign-in *ngIf="!requireNewPassword" (Login)="onLogin($event)"></app-sign-in>
+            <app-change-password *ngIf="requireNewPassword" (Submit)="onChangePassword($event)"></app-change-password>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="signin-component">
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <div class="field">
+            <input [(ngModel)]="username" type="text" name="username" title="username" placeholder="Username" required autofocus #user="ngModel">
+            <div *ngIf="user.invalid && (user.dirty || user.touched)" class="help is-danger">Username is invalid</div>
+        </div>
+
+        <div class="field">
+            <input [(ngModel)]="password" type="password" name="password" title="password" placeholder="Password" required  #pass="ngModel">
+            <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="help is-danger">Password is invalid</div>
+        </div>
+
+        <div class="signin-component__content-options level">
+            <div class="signin-component__checkbox level-left">
+                <input id="checkbox" [(ngModel)]="remember" name="remember" type="checkbox" class="signin-component__checkbox-regular">
+                <label for="checkbox"></label>
+                <span>Remember me</span>
+            </div>
+            <a class="btn btn-link level-right" href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">login</button>
+        <p *ngIf="errorMessage" class="signin-component__error">{{errorMessage}}</p>
+    </form>
+</div>

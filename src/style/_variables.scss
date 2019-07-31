@@ -1,0 +1,15 @@
+// Set your brand colors
+$primary: rgb(41, 173, 228);
+$secondary: rgb(255, 160, 5);
+$terciary: rgb(255, 255, 255);
+$white: rgb(255, 255, 255);
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
