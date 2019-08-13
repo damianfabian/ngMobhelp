@@ -6,11 +6,20 @@ import LoginView from './views/login/login.component';
 import HomeView from './views/home/home.component';
 import { SignInComponent } from './views/login/sign-in/sign-in.component';
 import { ChangePasswordComponent } from './views/login/change-password/change-password.component';
+import { PageViewerComponent } from './views/page-viewer/page-viewer.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProfileComponent } from './views/profile/profile.component';
+import { WizardComponent } from './views/wizard/wizard.component';
+import { ApplicationPipesModule } from './shareModules/app.pipes.module';
 
 const routes: Routes = [
   { path: 'login', component: LoginView },
   { path: 'home',      component: HomeView },
-  //{ path: 'settings', component: HeroListComponent },
+  { path: 'pageViewer', component: PageViewerComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'wizard',      component: WizardComponent },
   { path: '**', component: HomeView }
 ];
 
@@ -19,12 +28,17 @@ const routes: Routes = [
     LoginView,
     HomeView,
     SignInComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    PageViewerComponent,
+    DashboardComponent,
+    WizardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    FontAwesomeModule,
+    RouterModule.forRoot(routes),
+    ApplicationPipesModule
   ],
   exports: [RouterModule]
 })

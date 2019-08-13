@@ -1,0 +1,79 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateSection($input: CreateSectionInput!) {
+  createSection(input: $input) {
+    id
+    name
+    title
+    pages {
+      label
+      icon
+      id
+      tabs {
+        label
+        template
+      }
+    }
+  }
+}
+mutation UpdateSection($input: UpdateSectionInput!) {
+  updateSection(input: $input) {
+    id
+    name
+    title
+    pages {
+      label
+      icon
+      id
+      tabs {
+        label
+        template
+      }
+    }
+  }
+}
+mutation DeleteSection($input: DeleteSectionInput!) {
+  deleteSection(input: $input) {
+    id
+    name
+    title
+    pages {
+      label
+      icon
+      id
+      tabs {
+        label
+        template
+      }
+    }
+  }
+}
+mutation CreateUserInfo($input: CreateUserInfoInput!) {
+  createUserInfo(input: $input) {
+    id
+    topics {
+      id
+      isDone
+    }
+  }
+}
+mutation UpdateUserInfo($input: UpdateUserInfoInput!) {
+  updateUserInfo(input: $input) {
+    id
+    topics {
+      id
+      isDone
+    }
+    preferences {
+      sections
+    }
+  }
+}
+mutation DeleteUserInfo($input: DeleteUserInfoInput!) {
+  deleteUserInfo(input: $input) {
+    id
+    topics {
+      id
+      isDone
+    }
+  }
+}

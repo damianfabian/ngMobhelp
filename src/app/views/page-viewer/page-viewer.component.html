@@ -1,0 +1,24 @@
+<div class="page-viewer">
+    <div class="panel">
+        <div class="header">
+            <div class="top">
+                <a [routerLink]="[ '/dashboard' ]"><img src="assets/icn-back.svg" alt="Go Back" /></a>
+                <a *ngIf="!pageInfo.isDone" class="mark-done" (click)="onMarkDone()">Mark as Done</a>
+                <a *ngIf="pageInfo.isDone" class="mark-done" (click)="onUnmark()">Unmark as Done</a>
+            </div>
+            
+            <span class="title">{{pageInfo.label}}</span>
+        </div>
+        <div class="tabs">
+            <ul>
+                <li *ngFor="let tab of pageInfo.tabs" [ngClass]="{'is-active': tab.label === active}"><a (click)="showContent(tab)">{{tab.label}}</a></li>
+            </ul>
+        </div>
+        <div class="tabs-content">
+            <ng-container  *ngFor="let tab of pageInfo.tabs">
+                <div *ngIf="active === tab.label" [innerHTML]="tab.template"></div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+

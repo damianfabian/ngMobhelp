@@ -1,0 +1,14 @@
+<div [ngClass]="{'is-active': show}" class="modal modal-component">
+    <div class="modal-background"></div>
+    <div class="modal-content modal-component__content">
+        <div class="modal-component__header">
+            <h2>{{title}}</h2>
+        </div>
+        <p class="modal-component__text">{{message}}</p>
+        <div class="modal-component__actions">
+            <button class="modal-component__actions-ok" (click)="onClick(clickOk)">{{ok}}</button>
+            <button *ngIf="showCancel" class="modal-component__actions-cancel" (click)="onClick(clickCancel)">{{cancel}}</button>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="onClick(clickCancel)"></button>
+</div>

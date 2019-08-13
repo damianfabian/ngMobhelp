@@ -1,0 +1,11 @@
+@each $size in ( 0, 1, 2, 3, 4, 5 ) {
+    @each $pos in ('top', 'right', 'bottom', 'left') {
+        .margin-#{$pos}-#{$size} {
+            margin-#{$pos}: $size + rem
+        }
+
+        .padding-#{$pos}-#{$size} {
+            padding-#{$pos}: $size + rem
+        }
+    }
+}

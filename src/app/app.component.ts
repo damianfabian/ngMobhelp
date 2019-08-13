@@ -10,9 +10,7 @@ export class AppComponent {
   name = 'ngMobHelp';
 
   constructor(private router: Router) {
-    if(localStorage.getItem('user')) {
-      this.router.navigate(['/home']);
-    } else {
+    if(!localStorage.getItem('user')) {
       this.router.navigate(['/login']);
     }
   }

@@ -1,2 +1,18 @@
-<p>home works!</p>
-<button (click)="onLogout()">Logout</button>
+<div class="home-component">
+    <div class="home-component__wrapper">
+        <div class="home-component__image image">
+            <img src="assets/welcome.png" alt="Welcome" />
+        </div>
+
+        <div class="home-component__content">
+            <h2 class="home-component__content-title">Welcome to Mobiquity</h2>
+            <p class="home-component__content-text">
+                We are excited to have you on board.<br/>
+                Let’s help you transition smoothly to the Netherlands.
+            </p>
+        </div>
+    </div>
+    <div class="home-component__actions">
+        <a (click)="onContinue()" class="button is-large is-fullwidth">Continue</a>
+    </div>
+</div>

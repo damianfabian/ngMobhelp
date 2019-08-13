@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  UserPoolId: 'XXXXXXX',
+  ClientId: 'XXXXXXXXX',
+  AccessToken: 'XXXXXXXXXXXX',
+  appSync: {
+    "aws_project_region": "eu-xxxxxxx-1",
+    "aws_appsync_graphqlEndpoint": "https://xxxx.xxxxxxxxx.com/graphql",
+    "aws_appsync_region": "eu-xxxxxx-1",
+    "aws_appsync_authenticationType": "API_KEY",
+    "aws_appsync_apiKey": "xxxxxxxxxxxxxx"
+  }
 };
 
 /*

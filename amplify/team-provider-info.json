@@ -1,0 +1,14 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "ngmobhelp-dev-20190808150035-authRole",
+            "UnauthRoleArn": "arn:aws:iam::384220784788:role/ngmobhelp-dev-20190808150035-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::384220784788:role/ngmobhelp-dev-20190808150035-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "ngmobhelp-dev-20190808150035-deployment",
+            "UnauthRoleName": "ngmobhelp-dev-20190808150035-unauthRole",
+            "StackName": "ngmobhelp-dev-20190808150035",
+            "StackId": "arn:aws:cloudformation:eu-central-1:384220784788:stack/ngmobhelp-dev-20190808150035/832207e0-b9dc-11e9-a4d4-02998deedf64"
+        }
+    }
+}

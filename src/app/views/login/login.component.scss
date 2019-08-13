@@ -13,7 +13,6 @@
 		box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.11);
 
 		&-title {
-			background-color: darken($primary, 5%);
 			padding: 2rem;
 
 			h1 {
@@ -25,7 +24,7 @@
     }
 
     &__content {
-        padding: 3rem 2.5rem 5rem;
+        padding: 0rem 2.5rem 5rem;
 
         &-options {
 			color: $grey-light;

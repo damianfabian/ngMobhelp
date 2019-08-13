@@ -1,0 +1,32 @@
+<div class="dashboard">
+    <div class="header">
+        <h2 class="title">MobHelp</h2>
+        <a [routerLink]="[ '/profile']" class="icon">
+            <fa-icon [icon]="['fas', 'user']"></fa-icon>
+        </a>
+    </div>
+    <div class="banner">
+        <img src="https://picsum.photos/id/235/320/100" alt="MobHelp" />
+    </div>
+    <div class="content">
+        <h2>Welcome  <fa-icon [icon]="['fas', 'thumbs-up']"></fa-icon> Let's get started!</h2>
+        <span>{{progress}}% Complete</span>
+        <progress class="progress is-primary" [value]="progress" max="100">{{progress}}%</progress>
+    </div>
+    <aside class="menu">
+        <ng-container *ngFor="let section of data">
+            <p class="menu-label">
+                <span>{{section.title}}</span>
+            </p>
+            <ul class="menu-list">
+                <li *ngFor="let page of section.pages">
+                    <a class="menu-link" (click)="goToPage(page)">
+                        <span class="icon"> <fa-icon [icon]="['fas', page.icon]" size="lg"></fa-icon></span>
+                        <span class="text">{{page.label}}</span>
+                        <span *ngIf="isPageDone(page.id)" class="icon check"><fa-icon [icon]="['fas', 'check-circle']"></fa-icon></span>
+                    </a>
+                </li>
+            </ul>
+        </ng-container>
+    </aside>
+</div>

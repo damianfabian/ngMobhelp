@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import {AuthenticationDetails, CognitoUser, CognitoUserPool} from 'amazon-cognito-identity-js';
-import { environment } from '../../../environments/environment';
 import { isMobile } from '../../../helpers/browser';
 import { Router } from '@angular/router';
+import { CognitoService } from 'src/app/services/cognitoService';
+import { CognitoUserSession } from 'amazon-cognito-identity-js';
+import { AppSyncService } from 'src/app/services/appSync.service';
+import { APIService } from 'src/app/services/APIService';
+import { GetUserInfosQuery } from 'src/app/types/UserInfoType';
 
 @Component({
   selector: 'app-login',
@@ -13,19 +16,18 @@ import { Router } from '@angular/router';
 
 export default class LoginComponent implements OnInit {
   username: string = "";
+  userInfo: GetUserInfosQuery;
   requireNewPassword: boolean = false;
-  userPool: CognitoUserPool = null;
-  cognitoUser: CognitoUser = null;
-
-  constructor(private toastr: ToastrService, private router: Router) {
-    const PoolData = {
-      UserPoolId: environment.UserPoolId,
-      ClientId: environment.ClientId
-    };
-    this.userPool = new CognitoUserPool(PoolData);
-
+  
+  constructor(
+    private toastr: ToastrService, 
+    private router: Router, 
+    private awsService: CognitoService, 
+    private appSync: AppSyncService,
+    private APIService: APIService
+  ) {
     if(localStorage.getItem('user')) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/dashboard']);
     }
   }
 
@@ -34,56 +36,43 @@ export default class LoginComponent implements OnInit {
 
   onLogin({ user, password }) {
     if(user.length > 0 && password.length > 0) {
-      this.signupUser(user, password)
+      this.username = user;
+      this.awsService.signupUser(user, password).then((res: {
+        user?: CognitoUserSession,
+        error?: { message: string },
+        requireNewPassword?: boolean
+      }) => {
+        if(res.user) {
+          this.appSync.GetUserInfos(user).then(userInfo => {
+            if(userInfo) {
+              this.APIService.setUserInfo(userInfo);
+              this.router.navigate(['/dashboard']);
+            } else {
+              this.router.navigate(['/home']);
+            }
+          }).catch(err => {
+            console.log(err);
+          })
+          
+        }
+        if(res.error) {
+          this.toastr.error(res.error.message, 'Authentication Error');
+        }
+        if(res.requireNewPassword) {
+          this.requireNewPassword = true;
+        }
+      })
     }
   }
 
-  onChangePassword(newPassword) {
-    this.cognitoUser.completeNewPasswordChallenge(
-      newPassword,
-      {},
-      {
-        onSuccess: (result: any) => {
-          localStorage.setItem('user', this.username);
-          this.router.navigate(['/home']);
-        },
-        onFailure: (error: any) => {
-          console.error(error);
-          this.toastr.error(error.message, "Error")
-        }
+  onChangePassword(newPassword: string) {
+    this.awsService.changePassword(newPassword).then((res: { success: Boolean, error?: { message?: string } }) => {
+      if(res.success) {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.toastr.error(res.error!.message, 'Error');
       }
-    );
+    })
   }
-
-  signupUser(username: string, password: string) {
-    const authenticationData = {
-      Username: username,
-      Password: password
-    };
-    var authenticationDetails = new AuthenticationDetails(authenticationData);
-
-    var userData = {
-      Username: username,
-      Pool: this.userPool
-    };
-    this.username = username;
-    this.cognitoUser = new CognitoUser(userData);
-
-    this.cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: (result: any) => {
-        localStorage.setItem('user', username);
-      },
-      onFailure: (error: any) => {
-        console.log(error);
-        this.toastr.error(error.message, "Error")
-      },
-      newPasswordRequired: (userAttributes: any, requiredAttributes: any) => {
-        console.log(userAttributes, requiredAttributes);
-        this.requireNewPassword = true;
-      }
-    });
-  }
-
-
 
 }

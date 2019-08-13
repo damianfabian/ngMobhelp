@@ -1,0 +1,49 @@
+@import "~src/style/_base.scss";
+.settings-page {
+    height: 100%;
+    background-color: #29ade4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.settings-page .header {
+    background-color: #29ade4;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 0.5em 0.75em;
+}
+.settings-page .header .title {
+    font-size: 19px;
+    margin: 24px 0 18px;
+}
+.settings-page .panel-block {
+    border: none;
+}
+.settings-page .panel-block.bottom {
+    bottom: 0;
+}
+.settings-page .panel-block .label {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+.title,
+.settings-page .panel-block .label label {
+    text-align: left;
+    font-size: .9rem;
+    color: white;
+    width: 100%;
+}
+.subtitle,
+.settings-page .panel-block .label span {
+    text-align: left;
+    font-size: .7rem;
+    color: rgba(255, 255, 255, 0.75);
+    width: 100%;
+}
+
+.settings-page label.panel-block:hover {
+    background-color: transparent;
+}

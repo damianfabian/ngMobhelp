@@ -1,0 +1,43 @@
+@import '../../../style/base';
+.profile {
+    display: flex;
+    flex-direction: column;
+}
+.profile .back-link {
+    padding: $size-6;
+}
+.profile .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: $size-1;
+    margin-bottom: $size-3;
+}
+.profile .header .avatar {
+    width: 66px;
+    height: 66px;
+    border-radius: 33px;
+    background-color: $primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile .header .initials {
+    @include title();
+    color: $white;
+}
+.profile .header .name {
+    @include title();
+    margin-top: $size-7;
+}
+.profile .content .list .list-item {
+    color: $black;
+    display: flex;
+    height: 56px;
+}
+.profile .content .list .list-item .icon {
+    font-size: 20px;
+    color: $primary;
+    padding-left: $size-6;
+    padding-right: $size-3;
+}

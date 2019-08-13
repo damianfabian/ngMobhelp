@@ -1,0 +1,74 @@
+# this is an auto generated file. This will be overwritten
+query GetSections($name: String!) {
+  getSections(name: $name) {
+    id
+    name
+    title
+    pages {
+      label
+      icon
+      id
+      tabs
+    }
+  }
+}
+query AllSections {
+  allSections {
+    id
+    name
+    title
+    pages {
+      label
+      icon
+      id
+      tabs
+    }
+  }
+}
+query ListSections(
+  $filter: TableSectionsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSections(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      title
+      tabs
+    }
+    nextToken
+  }
+}
+
+query GetUserInfos($id: String!) {
+  getUserInfos(id: $id) {
+    id
+    topics {
+      id
+      isDone
+    }
+    preferences {
+      sections
+    }
+  }
+}
+query ListUserInfos(
+  $filter: TableSectionsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUserInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      topics {
+        id
+        isDone
+      }
+      preferences {
+        sections
+      }
+    }
+    nextToken
+  }
+}

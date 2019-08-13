@@ -1,0 +1,29 @@
+<div class="wizard-page">
+    <nav class="panel">
+        <p class="panel-heading header">
+            <span class="title">Please select which options apply to you</span>
+            <span class="subtitle">You can change these later</span>
+        </p>
+        <div class="panel-block">
+            <p class="control has-icons-left">
+                <input class="input is-small" type="text" placeholder="search" [(ngModel)]="searcher">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </span>
+            </p>
+        </div>
+        <label class="panel-block" *ngFor="let topic of (topics | filter: searcher : 'title')">
+            <input id="switchRoundedDefault" type="checkbox" name="switchRoundedDefault"
+                class="switch is-rounded .is-rtl" [checked]="topic.checked" (change)="changeSettings($event, topic)">
+            <div class="label">
+                <label for="switchRoundedDefault">{{topic.title}}</label>
+                <span>{{topic.description}}</span>
+            </div>
+        </label>
+    </nav>
+    <div class="panel-block bottom">
+        <button class="button is-fullwidth " (click)="saveSettings()">
+            Save
+        </button>
+    </div>
+</div>

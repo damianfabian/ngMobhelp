@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="220" viewBox="0 0 320 220">
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#29ADE4" font-family="Poppins-SemiBold, Poppins SemiBold" font-size="56.862" font-weight="500" transform="translate(5 104)">
+            <tspan x="26.02" y="60">mob</tspan> <tspan x="160.385" y="60" font-family="Poppins-Light, Poppins Light" font-weight="normal">help</tspan>
+        </text>
+        <text fill="#000" font-family="Poppins-ExtraLight, Poppins ExtraLight" font-size="11.7" letter-spacing="3.03" transform="translate(5 104)">
+            <tspan x="29" y="75">Welcoming new Mobsters</tspan>
+        </text>
+        <path fill="#29ADE4" d="M270.223 144.38a.27.27 0 0 1-.443 0c-.803-1.137-1.956-1.473-2.892-1.359-1.435.175-2.888 1.461-2.888 3.578 0 2.702 3.735 5.913 5.341 7.17.198.154.429.231.659.231.231 0 .463-.077.659-.232 1.606-1.254 5.341-4.467 5.341-7.17 0-2.116-1.452-3.402-2.887-3.577-.933-.113-2.089.222-2.89 1.36z"/>
+    </g>
+</svg>

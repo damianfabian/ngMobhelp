@@ -1,0 +1,67 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateSection($name: String, $title: String, $pages: PageInfo) {
+  onCreateSection(name: $name, title: $title, pages: $pages) {
+    id
+    name
+    title
+    pages {
+      label
+      icon
+      id
+      isDone
+    }
+  }
+}
+subscription OnUpdateSection($name: String, $title: String, $pages: PageInfo) {
+  onUpdateSection(name: $name, title: $title, pages: $pages) {
+    id
+    name
+    title
+    pages {
+      label
+      icon
+      id
+      isDone
+    }
+  }
+}
+subscription OnDeleteSection($name: String, $title: String, $pages: PageInfo) {
+  onDeleteSection(name: $name, title: $title, pages: $pages) {
+    id
+    name
+    title
+    pages {
+      label
+      icon
+      id
+      isDone
+    }
+  }
+}
+subscription OnCreateUserInfo($id: String, $topics: [TopicInput]) {
+  onCreateUserInfo(id: $id, topics: $topics) {
+    id
+    topics {
+      id
+      isDone
+    }
+  }
+}
+subscription OnUpdateUserInfo($id: String, $topics: [TopicInput]) {
+  onUpdateUserInfo(id: $id, topics: $topics) {
+    id
+    topics {
+      id
+      isDone
+    }
+  }
+}
+subscription OnDeleteUserInfo($id: String, $topics: [TopicInput]) {
+  onDeleteUserInfo(id: $id, topics: $topics) {
+    id
+    topics {
+      id
+      isDone
+    }
+  }
+}
