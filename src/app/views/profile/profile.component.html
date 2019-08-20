@@ -1,5 +1,5 @@
 <div class="profile">
-    <a [routerLink]="[ '/dashboard' ]" class="back-link"><img src="assets/icn-back-inverse.svg" alt="Go Back" /></a>
+    <a [routerLink]="[ '/dashboard' ]" class="back-link"><app-icon [iconSrc]="icons.backReverse" alt="Go Back"></app-icon></a>
     <div class="header">
         <div class="avatar">
             <img *ngIf="avatar" [src]="avatar" [alt]="name" />
@@ -9,19 +9,36 @@
     </div>
     <div class="content">
         <div class='list'>
-            <a class='list-item' [routerLink]="[ '/settings']"><span class='icon'><i class='fas fa-home'></i></span>Settings</a>
-            <a class='list-item'[routerLink]="[ '/handbook']"><span class='icon'><i class='fas fa-home'></i></span>Employee Handbook</a>
-            <a class='list-item'[routerLink]="[ '/links']"><span class='icon'><i class='fas fa-home'></i></span>Useful Links</a>
-            <a class='list-item'[routerLink]="[ '/help']"><span class='icon'><i class='fas fa-home'></i></span>Help</a>
-            <a class='list-item' (click)="toggleModal()"><span class='icon'><i class='fas fa-home'></i></span>Logout</a>
+            <a class='list-item' [routerLink]="[ '/settings']">
+                <div class='icon'><app-icon [iconSrc]="icons.settings"></app-icon></div>
+                Settings
+            </a>
+            <a class='list-item' [routerLink]="[ '/handbook']">
+                <div class='icon'><app-icon [iconSrc]="icons.info"></app-icon></div>
+                Employee Handbook</a>
+            <a class='list-item' [routerLink]="[ '/links']">
+                <div class='icon'><app-icon [iconSrc]="icons.links"></app-icon></div>
+                Useful Links
+            </a>
+            <a class='list-item' [routerLink]="[ '/help']">
+                <div class='icon'><app-icon [iconSrc]="icons.help"></app-icon></div>
+                Help
+            </a>
+            <a class='list-item' (click)="toggleModal()">
+                    <div class='icon'><app-icon [iconSrc]="icons.exit"></app-icon></div>
+                Logout
+            </a>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class='list'>
+            <p>Mobhelper {{version}}</p>
+            <p>©2019 Mobiquity Inc., all rights reserved.</p>
+            <a href="#">Privacy Policy</a>
+            <p>Always be kind</p>
         </div>
     </div>
 </div>
-<app-modal 
-    [show]="showModal" 
-    message="Please confirm that you'd like to log out of your account" 
-    title="Are you sure?" 
-    (clickOk)="onLogout()"
-    (clickCancel)="toggleModal()"
-    ok="Logout"
-></app-modal>
+
+<app-modal [show]="showModal" message="Please confirm that you'd like to log out of your account" title="Are you sure?"
+    (clickOk)="onLogout()" (clickCancel)="toggleModal()" ok="Logout"></app-modal>

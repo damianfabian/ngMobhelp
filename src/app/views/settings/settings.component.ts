@@ -1,10 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AppSyncService } from 'src/app/services/appSync.service';
 import { APIService } from 'src/app/services/APIService';
 import { GetUserInfosQuery } from 'src/app/types/UserInfoType';
-import { ModalType } from 'src/app/components/modal/modal.component';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 interface SectionSetting {
   name: String;
@@ -22,8 +21,15 @@ export class SettingsComponent implements OnInit {
   topics: Array<SectionSetting>;
   userInfo: GetUserInfosQuery;
 
-  constructor(private appSync: AppSyncService, private service: APIService, private ref: ChangeDetectorRef, private toastr: ToastrService) {
+  constructor(
+    private appSync: AppSyncService,
+    private service: APIService, 
+    private ref: ChangeDetectorRef, 
+    private toastr: ToastrService,
+    private router: Router
+  ) {
     ref.detach();
+    this.handleError = this.handleError.bind(this);
   }
 
   async ngOnInit() {    
@@ -35,10 +41,27 @@ export class SettingsComponent implements OnInit {
           return { active: isActive, name: section.name, title: section.title, description: section.description }
         });
         this.ref.detectChanges();
-      }).catch(res => {
-        console.log('Error on Loading Data ', res.errors)
-      });
-    });
+      }).catch(this.handleError);
+    }).catch(this.handleError);
+  }
+
+  handleError(res) {
+    if(res instanceof Object) {
+      if(res.errors.length > 0) {
+        switch (res.errors[0].errorType || res.errors[0].message) {
+          case "UnauthorizedException":
+          case "Request failed with status code 401":
+              this.service.logout();
+              this.router.navigate(['/login']);
+          break;
+          default:
+              this.toastr.error(res.errors[0].message, 'Error');
+          break;
+        }
+      }
+    } else {
+      console.debug(res);
+    }
   }
 
   changeSettings(event, topic: SectionSetting) {

@@ -1,0 +1,26 @@
+{
+    "id": "ea5aa980-1792-47f3-8292-faa76da751bd", // This is automatically assign
+    "name": "bank",
+    "pages": [
+      {
+        "icon": "money-check-alt",
+        "id": "bank",
+        "label": "Bank",
+        "tabs": [
+          {
+            "label": "Account",
+            "template": "<div class='header'><img src='https://picsum.photos/id/235/200/300' /></div><div class='content'><p>Lorem Ipsum Overview</p></div>"
+          },
+          {
+            "label": "Apps",
+            "template": "<div class='content'><div class='list'><p class='list-item'><span class='icon'><i class='fas fa-home'></i></span>Featured</p><p class='list-item'><span class='icon'><i class='fas fa-home'></i></span>Featured 1</p></div>"
+          },
+          {
+            "label": "Links",
+            "template": "<div class='content'><div class='card'><div class='card-image'><a class='image' href='https://funda.nl' target='_blank'><img src='https://picsum.photos/id/235/300/180' alt='Funda' /></a></div></div></div>"
+          }
+        ]
+      }
+    ],
+    "title": "Bank"
+  }

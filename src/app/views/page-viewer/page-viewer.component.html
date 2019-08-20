@@ -16,7 +16,7 @@
         </div>
         <div class="tabs-content">
             <ng-container  *ngFor="let tab of pageInfo.tabs">
-                <div *ngIf="active === tab.label" [innerHTML]="tab.template"></div>
+                <dynamic-html *ngIf="active === tab.label" [content]="tab.template"></dynamic-html>
             </ng-container>
         </div>
     </div>

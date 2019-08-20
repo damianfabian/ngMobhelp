@@ -4,7 +4,8 @@
     flex-direction: column;
 }
 .profile .back-link {
-    padding: $size-6;
+    margin: $size-6;
+    width: 24px;
 }
 .profile .header {
     display: flex;
@@ -39,5 +40,14 @@
     font-size: 20px;
     color: $primary;
     padding-left: $size-6;
-    padding-right: $size-3;
+    margin-right: $size-7;
+    width: 48px;
+    height: 30px;
+    
+}
+.profile .copyright {
+    padding: $size-6;
+}
+.profile .copyright p {
+    padding-bottom: $size-7;
 }

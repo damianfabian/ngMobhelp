@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { FilterPipe } from '../pipes/filter.pipe';
+import { IconComponent } from '../components/icon/icon.component';
 
 @NgModule({
   imports: [
-    // dep modules
+    //
   ],
   declarations: [ 
-    FilterPipe
+    FilterPipe,
+    IconComponent
   ],
   exports: [
-    FilterPipe
+    FilterPipe,
+    IconComponent
   ]
 })
 export class ApplicationPipesModule {}

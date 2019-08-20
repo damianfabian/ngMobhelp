@@ -58,15 +58,19 @@ export default class LoginComponent implements OnInit {
         if(res.error) {
           this.toastr.error(res.error.message, 'Authentication Error');
         }
+
         if(res.requireNewPassword) {
           this.requireNewPassword = true;
         }
+      }).catch(err => {
+        console.debug(err);
       })
     }
   }
 
-  onChangePassword(newPassword: string) {
-    this.awsService.changePassword(newPassword).then((res: { success: Boolean, error?: { message?: string } }) => {
+  onChangePassword(data: { password: string, name: string }) {
+    const userAttr = { name: data.name, picture: 'http://some/url/here' };
+    this.awsService.changePassword(data.password, userAttr).then((res: { success: Boolean, error?: { message?: string } }) => {
       if(res.success) {
         this.router.navigate(['/dashboard']);
       } else {

@@ -12,6 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './views/profile/profile.component';
 import { WizardComponent } from './views/wizard/wizard.component';
 import { ApplicationPipesModule } from './shareModules/app.pipes.module';
+import { DynamicHTMLModule } from './components/dynamicHtml';
+import { IconComponent } from './components/icon/icon.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginView },
@@ -38,7 +40,11 @@ const routes: Routes = [
     FormsModule,
     FontAwesomeModule,
     RouterModule.forRoot(routes),
-    ApplicationPipesModule
+    ApplicationPipesModule,
+    DynamicHTMLModule.forRoot({
+      components: [
+        {component: IconComponent, selector: 'app-icon'}
+      ]})
   ],
   exports: [RouterModule]
 })

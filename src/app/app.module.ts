@@ -12,12 +12,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { APIService } from './services/APIService';
 import { AppSyncService } from './services/appSync.service';
-import PubSub from '@aws-amplify/pubsub';
-import API from '@aws-amplify/api';
-import { environment } from 'src/environments/environment';
-PubSub.configure(environment.appSync);
-API.configure(environment.appSync);
-
+import { mob, mobLogo } from '../helpers/mobiquity-icons';
+import { IconComponent } from './components/icon/icon.component';
 
 @NgModule({
   declarations: [

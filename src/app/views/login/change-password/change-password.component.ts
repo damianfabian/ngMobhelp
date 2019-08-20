@@ -10,6 +10,7 @@ export class ChangePasswordComponent implements OnInit {
   @Output() Submit: EventEmitter<any> = new EventEmitter();
   password: string = "";
   rePassword: string = "";
+  name: string = "";
   
   constructor() { }
 
@@ -17,7 +18,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    this.Submit.emit(this.password);
+    this.Submit.emit({ password: this.password, name: this.name });
   }
 
 }

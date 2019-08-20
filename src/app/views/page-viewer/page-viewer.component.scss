@@ -90,7 +90,9 @@
     flex: 1;
 }
 :host::ng-deep .page-viewer .tabs-content .content span.icon {
-    padding-right: $size-3;
+    margin-right: $size-6;
+    height: 40px;
+    width: 40px;
 }
 :host::ng-deep .page-viewer .tabs-content .content span.icon svg > path {
     fill: $primary;
@@ -101,4 +103,9 @@
 :host::ng-deep .page-viewer .tabs-content .content .card-image .image img {
     width: 100%;
     max-height: 180px;
+}
+:host::ng-deep dynamic-html {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }

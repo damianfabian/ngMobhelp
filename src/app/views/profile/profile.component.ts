@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CognitoService } from 'src/app/services/cognitoService';
 import { Router } from '@angular/router';
+import { APIService } from 'src/app/services/APIService';
+import { CognitoService } from 'src/app/services/cognitoService';
+import config from '../../config';
+import { Icons, IconsType } from 'src/app/components/icon/icon.component';
 
 @Component({
   selector: 'app-profile',
@@ -12,10 +15,15 @@ export class ProfileComponent implements OnInit {
   fullName: string;
   avatar: string;
   showModal: boolean = false;
+  version: string;
+  icons: IconsType;
 
-  constructor(private awsService: CognitoService, private router: Router) { 
-    this.fullName = "Jan Van Mobster";
-    this.initials = "JV";
+  constructor(private service: APIService, private router: Router, private cognito: CognitoService) {   
+      const cognitoUser = this.cognito.getUserAtributes();
+      this.fullName = cognitoUser.name;
+      this.initials = cognitoUser.name.length >= 2 ? cognitoUser.name.substring(0, 2) : cognitoUser.name[0];
+      this.version = config.version;
+      this.icons = Icons;
   }
 
   ngOnInit() {
@@ -23,7 +31,7 @@ export class ProfileComponent implements OnInit {
 
   onLogout() {
     localStorage.removeItem('user');
-    this.awsService.signOut();
+    this.service.logout();
     this.router.navigate(['login']);
   }
 

@@ -8,12 +8,15 @@ import { SettingsComponent } from '../settings/settings.component';
 import { LinksComponent } from '../links/links.component';
 import { HelpComponent } from '../help/help.component';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
+import { HandbookComponent } from '../handbook/handbook.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
-  { path: 'links', component: LinksComponent }
+  { path: 'links', component: LinksComponent },
+  { path: 'handbook', component: HandbookComponent }
 ];
 
 @NgModule({
@@ -22,13 +25,15 @@ const routes: Routes = [
     SettingsComponent,
     LinksComponent,
     HelpComponent,
-    ModalComponent
+    ModalComponent,
+    HandbookComponent 
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
     FormsModule,
-    ApplicationPipesModule
+    ApplicationPipesModule,
+    FontAwesomeModule
   ],
   exports: [RouterModule]
 })

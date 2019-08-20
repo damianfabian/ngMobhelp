@@ -3,8 +3,11 @@ import { Injectable } from '@angular/core';
 import { AppSyncService } from './appSync.service';
 import { AllSectionsQuery } from '../types/SectionType';
 import { GetUserInfosQuery } from '../types/UserInfoType';
+import { CognitoService, User } from './cognitoService';
 
 const USER_INFO_KEY = 'ngMobhelp-userInfo';
+const USER_KEY = 'user';
+const UNAUTHORIZED_USER = { errors: [{ errorType: 'UnauthorizedException' }]}
 @Injectable({
     providedIn: "root"
 })
@@ -13,7 +16,7 @@ export class APIService {
     private currentPage: SectionInfo = null;
     private userInfo: GetUserInfosQuery = null;
 
-    constructor(private AppSync: AppSyncService) {
+    constructor(private AppSync: AppSyncService, private cognito: CognitoService) {
     }
 
     getCurrentPage() {
@@ -25,17 +28,23 @@ export class APIService {
     }
 
     async getUserInfo(): Promise<GetUserInfosQuery> {
-        const user = localStorage.getItem(USER_INFO_KEY);
-        if(user){
-            this.userInfo = JSON.parse(user);
+        const user = localStorage.getItem(USER_KEY);
+        if(user && user !== "undefined") {
+            const cognitoData : User = JSON.parse(user);
+            return new Promise((res, rej) => {
+                this.AppSync.GetUserInfos(cognitoData["cognito:username"]).then(data => {
+                    const userInfo = data ? data : { id: user };
+                    this.setUserInfo(<GetUserInfosQuery>userInfo)
+                    res(<GetUserInfosQuery>userInfo);
+                }).catch(err => { 
+                    rej(err) 
+                })
+            })
+        } else {
+            this.logout();
         }
 
-        return new Promise((res, rej) => {
-            this.AppSync.GetUserInfos(this.userInfo.id).then(data => {
-                this.setUserInfo(data);
-                res(data);
-            })
-        })
+        return new Promise((res, rej) => rej(UNAUTHORIZED_USER))
     }
 
     setUserInfo(user: GetUserInfosQuery) {
@@ -43,18 +52,21 @@ export class APIService {
         this.userInfo = user;
     }
 
-    async getSections() {
-        this.sections = await this.AppSync.AllSections();
-        return this.sections;
+    getSections() {
+        return this.AppSync.AllSections();
     }
 
     markPageAsDone(page: SectionInfo) {
-        const index = this.userInfo.topics.findIndex(topic => topic.id === page.id)
         const topic = { id: page.id, isDone: true }
-        if (index >= 0) {
-            this.userInfo.topics[index] = topic;
+        if (this.userInfo && this.userInfo.topics) {
+            const index = this.userInfo.topics.findIndex(topic => topic.id === page.id)
+            if (index >= 0) {
+                this.userInfo.topics[index] = topic;
+            } else {
+                this.userInfo.topics.push(topic)
+            }
         } else {
-            this.userInfo.topics.push(topic)
+            this.userInfo.topics = [topic]
         }
 
         return this.AppSync.UpdateUserInfo(this.userInfo)
@@ -69,6 +81,13 @@ export class APIService {
         }
 
         return new Promise( (res) => ({ errors: [ 'The page can not be unmark' ] }) );
+    }
+
+    logout() {
+        localStorage.removeItem(USER_INFO_KEY);
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        this.cognito.signOut();
     }
 }
 

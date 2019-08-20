@@ -2,14 +2,22 @@
 //  This file was automatically generated and should not be edited.
 import { Injectable } from "@angular/core";
 import API, { graphqlOperation } from "@aws-amplify/api";
+import Amplify from 'aws-amplify';
 import * as Observable from "zen-observable";
 import { GetSectionsQuery, AllSectionsQuery, OnCreateSectionSubscription, CreateSectionInput, CreateSectionMutation, UpdateSectionInput, UpdateSectionMutation, DeleteSectionInput, DeleteSectionMutation, TableSectionsFilterInput, ListSectionsQuery, OnUpdateSectionSubscription, OnDeleteSectionSubscription } from '../types/SectionType';
 import { GetUserInfosQuery, CreateUserInfoInput, CreateUserInfoMutation, UpdateUserInfoInput, UpdateUserInfoMutation, DeleteUserInfoInput, DeleteUserInfoMutation, ListUserInfosQuery, OnCreateUserInfoSubscription, OnUpdateUserInfoSubscription, OnDeleteUserInfoSubscription } from '../types/UserInfoType';
+import PubSub from '@aws-amplify/pubsub';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: "root"
 })
 export class AppSyncService {
+  configure(accessToken){
+    const awsConfig = Object.assign({}, environment, { graphql_headers: async () => ({ 'Authorization': accessToken }) });
+    //PubSub.configure(awsConfig);
+    Amplify.configure(awsConfig);
+  }
   async CreateSection(
     input: CreateSectionInput
   ): Promise<CreateSectionMutation> {
@@ -246,6 +254,7 @@ export class AppSyncService {
     const gqlAPIServiceArguments: any = {
       id
     };
+    
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;

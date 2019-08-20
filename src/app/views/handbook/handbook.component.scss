@@ -1,0 +1,15 @@
+.body {
+    background-color: rgba(0,0,0,.2);
+}
+
+.item {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    flex: 1;
+    align-items: center;
+    //border: 1px solid rgba(0, 0, 0, .3);
+    padding: 5px;
+}

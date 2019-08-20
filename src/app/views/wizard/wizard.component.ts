@@ -37,10 +37,7 @@ export class WizardComponent implements OnInit {
     this.service.getUserInfo().then(res => {
       this.userInfo = res;
       this.appSync.AllSections().then(temp => {
-        this.topics = temp.map(section => {
-          const isActive = res.preferences && res.preferences.sections ? res.preferences.sections.findIndex(item => item === section.name) >= 0 : false
-          return { active: isActive, name: section.name, title: section.title, description: section.description }
-        });
+        this.topics = temp.map(section => ({ active: false, name: section.name, title: section.title, description: section.description }) );
         this.ref.detectChanges();
       }).catch(res => {
         console.log('Error on Loading Data ', res.errors)
