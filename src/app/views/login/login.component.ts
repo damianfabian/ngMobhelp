@@ -62,8 +62,10 @@ export default class LoginComponent implements OnInit {
         if(res.requireNewPassword) {
           this.requireNewPassword = true;
         }
-      }).catch(err => {
-        console.debug(err);
+      }).catch(res => {
+        if(res.error) {
+          this.toastr.error(res.error.message, 'Authentication Error');
+        }
       })
     }
   }
