@@ -54,8 +54,7 @@ export class DashboardComponent implements OnInit {
   }
 
   handleError(res) {
-    if(res instanceof Object) {
-      if(res.errors.length > 0) {
+    if(res instanceof Object && res.errors && res.errors.length > 0) {
         switch (res.errors[0].errorType || res.errors[0].message) {
           case "UnauthorizedException":
           case "Request failed with status code 401":
@@ -66,7 +65,6 @@ export class DashboardComponent implements OnInit {
               this.toastr.error(res.errors[0].message, 'Error');
           break;
         }
-      }
     } else {
       console.debug(res);
     }

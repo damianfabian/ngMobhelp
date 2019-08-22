@@ -21,6 +21,9 @@
 .settings-page .panel-block {
     border: none;
 }
+.settings-page .panel-block .control .icon app-icon {
+    width: 12px;
+}
 .settings-page .panel-block.bottom {
     bottom: 0;
 }
@@ -46,4 +49,8 @@
 
 .settings-page label.panel-block:hover {
     background-color: transparent;
+}
+
+.settings-page .back-link {
+    width: 24px;
 }

@@ -1,14 +1,14 @@
 <div class="settings-page">
     <nav class="panel">
         <div class="header">
-            <a [routerLink]="[ '/dashboard' ]"><img src="assets/icn-back.svg" alt="Go Back" /></a>
+            <a [routerLink]="[ '/dashboard' ]" class="back-link"><app-icon [iconSrc]="icons.back" alt="Go Back"></app-icon></a>
             <span class="title">Settings</span>
         </div>
         <div class="panel-block">
             <p class="control has-icons-left">
-                <input class="input is-small" type="text" placeholder="search" [(ngModel)]="searcher">
+                <input class="input is-small" type="text" placeholder="search" (input)="onSearch($event)">
                 <span class="icon is-small is-left">
-                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <app-icon iconSrc="search"></app-icon>
                 </span>
             </p>
         </div>

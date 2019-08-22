@@ -3,10 +3,11 @@ import { ToastrService } from 'ngx-toastr';
 import { isMobile } from '../../../helpers/browser';
 import { Router } from '@angular/router';
 import { CognitoService } from 'src/app/services/cognitoService';
-import { CognitoUserSession } from 'amazon-cognito-identity-js';
+//import { CognitoUserSession } from 'amazon-cognito-identity-js';
 import { AppSyncService } from 'src/app/services/appSync.service';
 import { APIService } from 'src/app/services/APIService';
 import { GetUserInfosQuery } from 'src/app/types/UserInfoType';
+import { CognitoUser } from '@aws-amplify/auth';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { GetUserInfosQuery } from 'src/app/types/UserInfoType';
   styleUrls: ['./login.component.scss']
 })
 
-export default class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
   username: string = "";
   userInfo: GetUserInfosQuery;
   requireNewPassword: boolean = false;
@@ -38,7 +39,7 @@ export default class LoginComponent implements OnInit {
     if(user.length > 0 && password.length > 0) {
       this.username = user;
       this.awsService.signupUser(user, password).then((res: {
-        user?: CognitoUserSession,
+        user?: CognitoUser,
         error?: { message: string },
         requireNewPassword?: boolean
       }) => {
@@ -74,7 +75,7 @@ export default class LoginComponent implements OnInit {
     const userAttr = { name: data.name, picture: 'http://some/url/here' };
     this.awsService.changePassword(data.password, userAttr).then((res: { success: Boolean, error?: { message?: string } }) => {
       if(res.success) {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/wizard']);
       } else {
         this.toastr.error(res.error!.message, 'Error');
       }

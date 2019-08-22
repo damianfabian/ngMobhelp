@@ -17,9 +17,6 @@
     flex-basis: 20%;
     padding: 1rem;
 }
-:host::ng-deep .dashboard .header .icon .ng-fa-icon svg > path {
-    fill: $primary;
-}
 .dashboard .banner img {
     width: 100%;
     max-height: 100px;
@@ -34,9 +31,6 @@
 .dashboard .content span {
     font-size: 12px;
     display: block;
-}
-:host::ng-deep .dashboard .content h2 > .ng-fa-icon svg > path {
-    fill: $yellow;
 }
 .dashboard .content .progress {
     height: 4px;
@@ -73,8 +67,7 @@
 }
 .dashboard .menu .menu-list .menu-link .check {
     flex-basis: 10%;
-    font-size: $size-6;
-}
-:host::ng-deep .dashboard .menu .menu-list .menu-link .check .ng-fa-icon svg > path {
-    fill: $green;
+    app-icon {
+        width: 24px;
+    }
 }

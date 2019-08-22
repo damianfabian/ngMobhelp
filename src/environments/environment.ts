@@ -14,10 +14,10 @@ export const environment = {
   "aws_appsync_jwtToken": "xxxxxxxxxxxxxx",
   "Auth": {
     "region": "eu-xxxx-1",
-    "identityPoolId": "eu-xxxx-1_xxxxxx",
     "userPoolId": "eu-xxxxxx-1_xxxxx",
     "userPoolWebClientId": "xxxxxxxxxxxx"
-  }
+  },
+  production: false
 };
 
 /*

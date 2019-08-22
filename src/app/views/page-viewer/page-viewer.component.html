@@ -2,7 +2,7 @@
     <div class="panel">
         <div class="header">
             <div class="top">
-                <a [routerLink]="[ '/dashboard' ]"><img src="assets/icn-back.svg" alt="Go Back" /></a>
+                <a [routerLink]="[ '/dashboard' ]"  class="back-link"><app-icon [iconSrc]="icons.back" alt="Go Back"></app-icon></a>
                 <a *ngIf="!pageInfo.isDone" class="mark-done" (click)="onMarkDone()">Mark as Done</a>
                 <a *ngIf="pageInfo.isDone" class="mark-done" (click)="onUnmark()">Unmark as Done</a>
             </div>

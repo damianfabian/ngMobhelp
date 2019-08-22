@@ -2,35 +2,27 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import LoginView from './views/login/login.component';
-import HomeView from './views/home/home.component';
-import { SignInComponent } from './views/login/sign-in/sign-in.component';
-import { ChangePasswordComponent } from './views/login/change-password/change-password.component';
+import { HomeComponent } from './views/home/home.component';
 import { PageViewerComponent } from './views/page-viewer/page-viewer.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ProfileComponent } from './views/profile/profile.component';
 import { WizardComponent } from './views/wizard/wizard.component';
-import { ApplicationPipesModule } from './shareModules/app.pipes.module';
 import { DynamicHTMLModule } from './components/dynamicHtml';
 import { IconComponent } from './components/icon/icon.component';
+import { ApplicationPipesModule } from './shareModules/app.pipes.module';
 
 const routes: Routes = [
-  { path: 'login', component: LoginView },
-  { path: 'home',      component: HomeView },
+  { path: 'login', loadChildren: () => import('./views/login/login.module').then(mod => mod.LoginModule) },
+  { path: 'home', component: HomeComponent },
   { path: 'pageViewer', component: PageViewerComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'wizard',      component: WizardComponent },
-  { path: '**', component: HomeView }
+  { path: 'profile', loadChildren: () => import('./views/profile/profile.module').then(mod => mod.ProfileModule) },
+  { path: 'wizard', component: WizardComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
   declarations: [
-    LoginView,
-    HomeView,
-    SignInComponent,
-    ChangePasswordComponent,
+    HomeComponent,
     PageViewerComponent,
     DashboardComponent,
     WizardComponent
@@ -38,13 +30,13 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule,
     RouterModule.forRoot(routes),
-    ApplicationPipesModule,
     DynamicHTMLModule.forRoot({
       components: [
-        {component: IconComponent, selector: 'app-icon'}
-      ]})
+        { component: IconComponent, selector: 'app-icon' }
+      ]
+    }),
+    ApplicationPipesModule
   ],
   exports: [RouterModule]
 })

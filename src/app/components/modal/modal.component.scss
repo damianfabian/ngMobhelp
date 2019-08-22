@@ -9,6 +9,7 @@
     }
     &__content {
         width: 80%;
+        max-width: 450px;
         background-color: $white;
     }
     &__header h2 {

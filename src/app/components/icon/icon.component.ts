@@ -1,5 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+const ICON_SET = [
+  "links", 
+  "helpSupport", 
+  "settings", 
+  "info", 
+  "bsn", 
+  "car", 
+  "mob", 
+  "exit", 
+  "bank", 
+  "bike", 
+  "housing", 
+  "id", 
+  "income", 
+  "insurance", 
+  "login", 
+  "number", 
+  "ovkaart", 
+  "payslips", 
+  "residence", 
+  "schools", 
+  "visa", 
+  "back", 
+  "backReverse", 
+  "profile", 
+  "search", 
+  "check"
+]
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
@@ -11,7 +39,9 @@ export class IconComponent implements OnInit {
   validator: RegExp;
 
   constructor() {
-    this.validator = new RegExp('links|help-support|settings|info|bsn|car|mob|exit|bank|bike|housing|id|income|insurance|login|number|ovkaart|payslips|residence|schools|visa|back|back-reverse|profile')
+    this.validator = new RegExp(
+      ICON_SET.reduce((prev, curr) => `${prev}${prev.length > 0 ? '|' : ''}^${curr}$`, '' )
+    )
   }
 
   ngOnInit() {
@@ -23,29 +53,7 @@ export type IconsType = {
   [s: string]: string
 };
 
-export const Icons: IconsType = {
-  "links": "links",
-  "help": "help-support",
-  "settings": "settings",
-  "info": "info",
-  "bsn": "bsn",
-  "car": "car",
-  "mob": "mob",
-  "exit": "exit",
-  "bank": "bank",
-  "bike": "bike",
-  "housing": "housing",
-  "id": "id",
-  "income": "income",
-  "insurance": "insurance",
-  "login": "login",
-  "number": "number",
-  "ovkaart": "ovkaart",
-  "payslips": "payslips",
-  "residence": "residence",
-  "schools": "schools",
-  "visa": "visa",
-  "back": "back",
-  "backReverse": "back-reverse",
-  "profile": "profile"
-}
+const Icons: IconsType = {};
+ICON_SET.forEach(item => Icons[item] = item);
+
+export { Icons };

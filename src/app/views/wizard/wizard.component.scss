@@ -21,6 +21,9 @@
 .wizard-page .panel-block {
     border: none;
 }
+.wizard-page .panel-block .control .icon app-icon {
+    width: 12px;
+}
 .wizard-page .panel-block.bottom {
     bottom: 0;
 }

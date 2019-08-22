@@ -1,93 +1,75 @@
-import {AuthenticationDetails, CognitoUser, CognitoUserPool, CognitoIdToken, CognitoUserSession} from 'amazon-cognito-identity-js';
+import { Auth } from 'aws-amplify';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { AppSyncService } from './appSync.service';
+import { CognitoUser } from '@aws-amplify/auth';
 
 @Injectable({
   providedIn: "root"
 })
 export class CognitoService {
-    private userPool: CognitoUserPool = null;
-    private cognitoUser: CognitoUser = null;
-    private userInfo: CognitoIdToken;
+  user: CognitoUser;
+  constructor(private appSync: AppSyncService) {
+    Auth.configure(environment);
+    this.user = null;
+  }
 
-    constructor(private appSync: AppSyncService) {
-        const PoolData = {
-            UserPoolId: environment.UserPoolId,
-            ClientId: environment.ClientId
-        };
-        this.userPool = new CognitoUserPool(PoolData);
-    }
-
-    signupUser(username: string, password: string) {
-        const authenticationData = {
-          Username: username,
-          Password: password
-        };
-        var authenticationDetails = new AuthenticationDetails(authenticationData);
-    
-        var userData = {
-          Username: username,
-          Pool: this.userPool
-        };
-
-        this.cognitoUser = new CognitoUser(userData);
-
-        return new Promise((res, rej) => {
-            this.cognitoUser.authenticateUser(authenticationDetails, {
-                onSuccess: (result: CognitoUserSession) => {
-                  var accessToken = result.getAccessToken().getJwtToken();
-                  localStorage.setItem('user', JSON.stringify(result.getIdToken().payload));
-                  localStorage.setItem('token', accessToken);
-                  this.appSync.configure(accessToken);
-                  res({ user: result });
-                },
-                onFailure: (error: any) => {
-                  console.log(error);
-                  rej({ error });
-                  //this.toastr.error(error.message, "Error")
-                },
-                newPasswordRequired: (userAttributes: any, requiredAttributes: any) => {
-                  console.log(userAttributes, requiredAttributes);
-                  res({ requireNewPassword : true });
-                }
-          });    
-        })
-    }
-    
-    changePassword(newPassword: string, attributes: any = {}) {
-        return new Promise((res, rej) => {
-            this.cognitoUser.completeNewPasswordChallenge(
-                newPassword,
-                attributes,
-                {
-                  onSuccess: (result: any) => {
-                    localStorage.setItem('user', this.cognitoUser.getUsername());
-                    res({ success: true })
-                  },
-                  onFailure: (error: any) => {
-                    console.error(error);
-                    //this.toastr.error(error.message, "Error")
-                    rej({ error , success: false })
-                  }
-                }
-            );
-        })
-    }
-
-    getCurrentUsername() {
-        this.cognitoUser.getUsername()
-    }
-
-    getUserAtributes(): User {
-      return JSON.parse(localStorage.getItem('user'))
-    }
-
-    signOut() {
-        if(this.cognitoUser) {
-          this.cognitoUser.signOut();
+  signupUser(username: string, password: string) {
+    return new Promise((res, rej) => {
+      Auth.signIn(username, password).then((user: any) => {
+        if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
+          this.user = user;
+          res({ requireNewPassword: true });
+        } else {
+          res(this.handleLogin(user))
         }
-    }
+      }).catch(error => {
+        console.log(error);
+        rej({ error });
+        //this.toastr.error(error.message, "Error")
+      })
+    })
+  }
+
+  handleLogin(user: CognitoUser) {
+    var accessToken = user.getSignInUserSession().getAccessToken().getJwtToken();
+    localStorage.setItem('user', JSON.stringify(user.getSignInUserSession().getIdToken().payload));
+    localStorage.setItem('token', accessToken);
+    this.appSync.configure(accessToken);
+    return { user };
+  }
+
+  changePassword(newPassword: string, attributes: any = {}) {
+    return new Promise((res, rej) => {
+      Auth.completeNewPassword(
+        this.user,
+        newPassword,
+        attributes
+      ).then(user => {
+        this.handleLogin(user);
+        res({ success: true })
+      }).catch(err => {
+        console.error(err);
+        rej({ err, success: false })
+      })
+    })
+  }
+
+  getCurrentUsername() {
+    this.user.getUsername()
+  }
+
+  getUserAtributes(): User {
+    return JSON.parse(localStorage.getItem('user'))
+  }
+
+  signOut() {
+    Auth.currentAuthenticatedUser()
+      .then(user => Auth.signOut())
+      .catch(err => {
+        console.log(err)
+      })
+  }
 }
 
 export interface UserAttributes {

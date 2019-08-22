@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { IconComponent } from '../components/icon/icon.component';
+import { ModalComponent } from '../components/modal/modal.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
-    //
+    CommonModule
   ],
-  declarations: [ 
+  declarations: [
     FilterPipe,
-    IconComponent
+    IconComponent,
+    ModalComponent
   ],
   exports: [
     FilterPipe,
-    IconComponent
+    IconComponent,
+    ModalComponent
   ]
 })
 export class ApplicationPipesModule {}

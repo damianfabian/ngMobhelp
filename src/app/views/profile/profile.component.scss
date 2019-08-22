@@ -26,6 +26,7 @@
 .profile .header .initials {
     @include title();
     color: $white;
+    font-size: 30px;
 }
 .profile .header .name {
     @include title();

@@ -23,7 +23,7 @@
                     <a class="menu-link" (click)="goToPage(page)">
                         <span class="icon"> <app-icon [iconSrc]="page.icon"></app-icon></span>
                         <span class="text">{{page.label}}</span>
-                        <span *ngIf="isPageDone(page.id)" class="icon check"><fa-icon [icon]="['fas', 'check-circle']"></fa-icon></span>
+                        <span *ngIf="isPageDone(page.id)" class="icon check"><app-icon iconSrc="check"></app-icon></span>
                     </a>
                 </li>
             </ul>

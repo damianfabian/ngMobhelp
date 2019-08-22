@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export default class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   constructor(private router: Router, private service: APIService, private toastr: ToastrService) { 
   }

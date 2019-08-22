@@ -4,6 +4,7 @@ import { APIService } from 'src/app/services/APIService';
 import { GetUserInfosQuery } from 'src/app/types/UserInfoType';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { IconsType, Icons } from 'src/app/components/icon/icon.component';
 
 interface SectionSetting {
   name: String;
@@ -20,6 +21,7 @@ export class SettingsComponent implements OnInit {
   searcher: string;
   topics: Array<SectionSetting>;
   userInfo: GetUserInfosQuery;
+  icons: IconsType;
 
   constructor(
     private appSync: AppSyncService,
@@ -30,6 +32,7 @@ export class SettingsComponent implements OnInit {
   ) {
     ref.detach();
     this.handleError = this.handleError.bind(this);
+    this.icons = Icons;
   }
 
   async ngOnInit() {    
@@ -62,6 +65,11 @@ export class SettingsComponent implements OnInit {
     } else {
       console.debug(res);
     }
+  }
+
+  onSearch(event) {
+    this.searcher = event.target.value;
+    this.ref.detectChanges();
   }
 
   changeSettings(event, topic: SectionSetting) {

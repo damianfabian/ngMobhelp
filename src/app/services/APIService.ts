@@ -1,4 +1,3 @@
-import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { AppSyncService } from './appSync.service';
 import { AllSectionsQuery } from '../types/SectionType';
@@ -31,9 +30,10 @@ export class APIService {
         const user = localStorage.getItem(USER_KEY);
         if(user && user !== "undefined") {
             const cognitoData : User = JSON.parse(user);
+            const username = cognitoData["cognito:username"];
             return new Promise((res, rej) => {
-                this.AppSync.GetUserInfos(cognitoData["cognito:username"]).then(data => {
-                    const userInfo = data ? data : { id: user };
+                this.AppSync.GetUserInfos(username).then(data => {
+                    const userInfo = data ? data : { id: username, preferences: { sections: [] } };
                     this.setUserInfo(<GetUserInfosQuery>userInfo)
                     res(<GetUserInfosQuery>userInfo);
                 }).catch(err => { 

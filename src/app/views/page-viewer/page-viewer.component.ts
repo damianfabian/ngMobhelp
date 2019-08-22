@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SectionInfo, APIService } from 'src/app/services/APIService';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { IconsType, Icons } from 'src/app/components/icon/icon.component';
 
 @Component({
   selector: 'app-page-viewer',
@@ -11,8 +12,11 @@ import { ToastrService } from 'ngx-toastr';
 export class PageViewerComponent implements OnInit {
   pageInfo: SectionInfo;
   active: string;
+  icons: IconsType;
+
   constructor(private service: APIService, private router: Router, private toastr: ToastrService) {
     this.pageInfo = service.getCurrentPage();
+    this.icons = Icons;
     if(this.pageInfo === null) {
       this.router.navigate(['dashboard']);
     } else {
