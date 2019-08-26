@@ -5,7 +5,7 @@ import { LoginComponent } from './login.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { FormsModule } from '@angular/forms';
-import { ApplicationPipesModule } from 'src/app/shareModules/app.pipes.module';
+import { ApplicationPipesModule } from 'src/app/shareModules/app.share.module';
 
 
 const routes: Routes = [

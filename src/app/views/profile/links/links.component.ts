@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IconsType, Icons } from 'src/app/components/icon/icon.component';
 
 @Component({
   selector: 'app-links',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./links.component.scss']
 })
 export class LinksComponent implements OnInit {
-
-  constructor() { }
+  icons: IconsType;
+  constructor() { 
+    this.icons = Icons;
+  }
 
   ngOnInit() {
   }

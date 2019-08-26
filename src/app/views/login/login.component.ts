@@ -79,6 +79,8 @@ export class LoginComponent implements OnInit {
       } else {
         this.toastr.error(res.error!.message, 'Error');
       }
+    }).catch(res => {
+      this.toastr.error(res.error.message, 'Error');
     })
   }
 

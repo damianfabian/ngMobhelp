@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './views/home/home.component';
 import { PageViewerComponent } from './views/page-viewer/page-viewer.component';
@@ -8,7 +8,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { WizardComponent } from './views/wizard/wizard.component';
 import { DynamicHTMLModule } from './components/dynamicHtml';
 import { IconComponent } from './components/icon/icon.component';
-import { ApplicationPipesModule } from './shareModules/app.pipes.module';
+import { ApplicationPipesModule } from './shareModules/app.share.module';
 
 const routes: Routes = [
   { path: 'login', loadChildren: () => import('./views/login/login.module').then(mod => mod.LoginModule) },
@@ -30,7 +30,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     DynamicHTMLModule.forRoot({
       components: [
         { component: IconComponent, selector: 'app-icon' }

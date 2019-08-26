@@ -9,18 +9,18 @@
     </div>
     <div class="content">
         <div class='list'>
-            <a class='list-item' [routerLink]="[ '/settings']">
+            <a class='list-item' [routerLink]="[ '/profile', 'settings']">
                 <div class='icon'><app-icon [iconSrc]="icons.settings"></app-icon></div>
                 Settings
             </a>
-            <a class='list-item' [routerLink]="[ '/handbook']">
+            <a class='list-item' [routerLink]="[ '/profile', 'handbook']">
                 <div class='icon'><app-icon [iconSrc]="icons.info"></app-icon></div>
                 Employee Handbook</a>
-            <a class='list-item' [routerLink]="[ '/links']">
+            <a class='list-item' [routerLink]="[ '/profile', 'links']">
                 <div class='icon'><app-icon [iconSrc]="icons.links"></app-icon></div>
                 Useful Links
             </a>
-            <a class='list-item' [routerLink]="[ '/help']">
+            <a class='list-item' [routerLink]="[ '/profile', 'help']">
                 <div class='icon'><app-icon [iconSrc]="icons.helpSupport"></app-icon></div>
                 Help
             </a>

@@ -1,8 +1,7 @@
-import { Auth } from 'aws-amplify';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { AppSyncService } from './appSync.service';
-import { CognitoUser } from '@aws-amplify/auth';
+import Auth, { CognitoUser } from '@aws-amplify/auth';
 
 @Injectable({
   providedIn: "root"
@@ -49,8 +48,8 @@ export class CognitoService {
         this.handleLogin(user);
         res({ success: true })
       }).catch(err => {
-        console.error(err);
-        rej({ err, success: false })
+        console.log(err);
+        rej({ error: err, success: false })
       })
     })
   }

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CognitoService } from './services/cognitoService';
 import { APIService } from './services/APIService';
 import { AppSyncService } from './services/appSync.service';
-import { ApplicationPipesModule } from './shareModules/app.pipes.module';
+import { ApplicationPipesModule } from './shareModules/app.share.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { ApplicationPipesModule } from './shareModules/app.pipes.module';
       preventDuplicates: true  
     }),
     ApplicationPipesModule,
-    ProfileRoutingModule,
     AppRoutingModule
   ],
   providers: [CognitoService, APIService, AppSyncService],
