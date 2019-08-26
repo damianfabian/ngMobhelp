@@ -34,6 +34,7 @@ export class AppSyncService {
               template
             }
           }
+          order
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -61,6 +62,7 @@ export class AppSyncService {
               template
             }
           }
+          order
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -88,6 +90,7 @@ export class AppSyncService {
               template
             }
           }
+          order
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -173,6 +176,7 @@ export class AppSyncService {
               template
             }
           }
+          order
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -198,6 +202,7 @@ export class AppSyncService {
               template
             }
           }
+          order
         }
       }`;
     const response = (await API.graphql(graphqlOperation(statement))) as any;
@@ -214,10 +219,16 @@ export class AppSyncService {
             id
             name
             title
-            tabs {
+            pages {
               label
-              template
+              icon
+              id
+              tabs {
+                label
+                template
+              }
             }
+            order
           }
           nextToken
         }
@@ -312,6 +323,7 @@ export class AppSyncService {
               template
             }
           }
+          order
         }
       }`
     )
@@ -335,6 +347,7 @@ export class AppSyncService {
               template
             }
           }
+          order
         }
       }`
     )
@@ -358,6 +371,7 @@ export class AppSyncService {
               template
             }
           }
+          order
         }
       }`
     )

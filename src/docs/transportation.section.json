@@ -1,0 +1,48 @@
+{
+    "id": "ea5aa980-1792-47f3-8292-faa76da751bd",
+    "name": "transportation",
+    "pages": [
+        {
+            "icon": "bike",
+            "id": "bike",
+            "label": "Bicycle",
+            "tabs": [{
+                    "label": "Overview",
+                    "template": "<div class='header'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/bycicle.jpg' /></div><div class='content'><p>So, you’ve just arrived in the Netherlands, or maybe you have been here a while, and you have noticed that cycling is pretty much the main mode of transport in this small country. But where can you find your own set of wheels? Here are five options to help get you mobile.<br /><ol><li>Go to your local bike shop</li><li>Browse Marktplaats (the cheapest option)</li><li>Try looking on Facebook groups</li><li>Get a second-hand bike from the municipality</li><li>Lease a bike (swapfiets)</li></ol></p><p><br />Don’t, we repeat, don’t buy a bike from a stranger on the street offering it to you for 10 euros. That bike is very likely / definitely stolen and you buying it means you are buying stolen goods, which is illegal. Don’t meet up with someone to buy their bike if they seem shady to you. If you do meet up with someone, let your friends / someone know and / or take someone with you.</p></div>"
+                },
+                {
+                    "label": "Links",
+                    "template": "<div class='content'><div class='card'><div class='card'><div class='card-image'><a class='image' href='https://www.marktplaats.nl/c/fietsen-en-brommers/c445.html' target='_blank'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/marktplaats.png' alt='Marktplaats' /></a></div><div class='card-image'><a class='image' href='https://www.cheapassbikes.nl/' target='_blank'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/cheapassbikes.png' alt='cheapassbikes' /></a></div><div class='card-image'><a class='image' href='https://swapfiets.nl/' target='_blank'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/swapfiets.png' alt='Swapfiets' /></a></div></div>"
+                }
+            ]
+        },
+        {
+            "icon": "ovkaart",
+            "id": "ovkaart",
+            "label": "OV Kaart",
+            "tabs": [{
+                    "label": "Overview",
+                    "template": "<div class='header'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/bsn.png' /></div><div class='content'><p>The OV-chipkaart is the ticket for public transport in the Netherlands. If you carry an OV-chipkaart with you, you will no longer need to think about strip tickets or metro and train tickets. You can travel on trains, trams, buses and metros with a single ticket.</p><p>For work related travels you will be using a business OV card but for private comutting the best is apply for a personal pard A link to buy a personal card you can find in the link tab</p><p>Other option is the Anonymous OV-chipkaart which you can buy in all tickets automats. You can use the card the same way as the persoanl one but the card has some limitations e.g. you cannot rent a NS bike or use NS discounts.</p><p>How to use the OV cards: Load before you travel You will need to load the card before you start your journey. You can do this with money, which means you will be travelling on credit and will pay per kilometre travelled. Or you can do it with a travel product, such as a season ticket for commuting or a discount ticket for offpeak travel. Checking in You must always check in and out with an OV-chipkaart. At the start of your journey, hold your card against the screen on a gate or card reader. Your card will be checked to ensure you have a valid travel product or sufficient credit. Then the gate will open, or the card reader will beep to confirm. Checking out At the end of your journey, or when you transfer to another mode of transport, hold your card against the screen on a gate or card reader. The card reader will check whether you have travelled using a travel product or on credit. If you have travelled on credit, the card reader will display the cost of your journey. The boarding fare, minus the cost of your journey, will be returned to your card.</p><p>Don't forget to check out! Otherwise you will lose your full boarding fare.</p></div>"
+                },
+                {
+                    "label": "Docs",
+                    "template": "<div class='content'><ul class='list'><li class='list-item'><span class='icon'><app-icon iconsrc='id'></app-icon></span>Passport or ID Document <br><small> No Driving License</small></li><li class='list-item'><span class='icon'><app-icon iconsrc='birth'></app-icon></span>Birth certificate</li><li class='list-item'><span class='icon'><app-icon iconsrc='residence'></app-icon></span>Residence Permit</li><li class='list-item'><span class='icon'><app-icon iconsrc='mob'></app-icon></span>Employment Contract <br><small>If you are not european</small></li></ul></div>"
+                },
+                {
+                    "label": "Links",
+                    "template": "<div class='content'> <div class='card'> <div class='card-image'> <a class='image' href='https://www.iamexpat.nl/expat-info/official-issues/bsn-sofi-number-netherlands' target='_blank'> <img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/iamexpat.png' alt='Iamexpat' /> </a> </div> </div> <div class='card'> <div class='card-image'> <a class='image' href='https://www.iamsterdam.com/en/living/take-care-of-official-matters/registration/citizen-service-number' target='_blank'> <img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/iamsterdam.png' alt='I amsterdam' /> </a> </div> </div> <div class='card'> <div class='card-image'> <a class='image' href='https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/individuals/other_subjects/citizen_service_number/what_is_a_citizen_service_number_bsn/' target='_blank'> <img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/belastingdienst.png' alt='Belastingdienst' /> </a> </div> </div> </div>"
+                }
+            ]
+        },
+        {
+            "icon": "parking",
+            "id": "parking",
+            "label": "Car & Parking",
+            "tabs": [{
+                "label": "Overview",
+                "template": "<div class='header'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/Car+and+Parking.jpg' /></div><div class='content'><p>There is a severe lack of parking space in most big cities in the Netherlands. In an effort to reduce congestion, many cities have a park and ride scheme (P+R-locaties). The driver parks at an organised, out of town location and then finishes the journey on public transport to the city centre.</p><p>P-Zone: In almost all urban districts, parking is not free. In metered parking areas (marked by a P zone sign), parking tickets are available from the central meter machine (usually grey or yellow) at the side of the road. The ticket must be displayed in the front window. Failing to display a ticket may lead to a huge fine. In case you park your car in a place where it is not allowed to be parked, the police might tow the car away. The costs can run into hundreds of Euros, and it is a time-consuming project to get the car back. Meter machines on the street vary in terms of method of payment allowed (in large urban areas, most have English-language directions). In most cases, a bank pin/chip card or credit card will work.</p><p>Blue Zone: A time-stamped parking disc - displayed on the dashboard - is needed to park in urban blue zone areas. These discs are available at motor club offices, tobacco shops, and police stations. Parking is also available in large, multi-storey, or underground parking garages. Payment may be in cash or by pin/chip cards. In more residential areas, permits for residents are available.</p><p>Parking garage: In the city centre of most cities, there are a lot of garages to park your car. An advantage of parking in a garage is that there's video surveillance, so you don't leave your car unattended. When you drive into the garage, you will receive a ticket. When you leave, you register your ticket at the cash machine, pay and use that ticket to leave the garage.</p></div>"
+            }]
+        }
+    ],
+    "title": "Transportation"
+  }

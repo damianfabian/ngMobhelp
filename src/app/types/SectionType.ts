@@ -116,6 +116,7 @@ export type PageInfo = {
       id: string;
       tabs: Array<TabInfo | null> | null;
     } | null> | null;
+    order: number;
   }>;
   
   export type ListSectionsQuery = {

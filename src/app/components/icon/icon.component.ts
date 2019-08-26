@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { OnMount } from '../dynamicHtml';
 
 const ICON_SET = [
   "birth",
@@ -36,8 +37,8 @@ const ICON_SET = [
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']
 })
-export class IconComponent implements OnInit {
-  @Input() iconSrc!: string;
+export class IconComponent implements OnInit, OnMount {
+  @Input() iconsrc!: string;
   icon: String;
   validator: RegExp;
 
@@ -48,7 +49,11 @@ export class IconComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.icon = this.validator.test(this.iconSrc) ? `assets/${this.iconSrc}.svg` : "assets/mob.svg";
+    this.icon = this.validator.test(this.iconsrc) ? `assets/${this.iconsrc}.svg` : "assets/mob.svg";
+  }
+
+  dynamicOnMount(attrs: Map<String, String>, content: string, element: Element) {
+    this.iconsrc = <string> attrs.get("iconsrc");
   }
 }
 

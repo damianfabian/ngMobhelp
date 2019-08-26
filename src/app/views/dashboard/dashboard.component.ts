@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
       // Get all sections available in the BD
       this.service.getSections().then(res => {
         // Show only the sections the user has marked
-        this.data = res.filter( section => this.userInfo.preferences.sections.findIndex(pSec => pSec === section.name) >= 0 )
+        this.data = res.filter( section => this.userInfo.preferences.sections.findIndex(pSec => pSec === section.name) >= 0 ).sort((a, b) => a.order - b.order )
         //Calculate the value per section
         const sectionValue = 100 / this.userInfo.preferences.sections.length;
         

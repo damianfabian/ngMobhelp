@@ -2,7 +2,7 @@
     <div class="header">
         <h2 class="title">MobHelp</h2>
         <a [routerLink]="[ '/profile']" class="icon">
-            <app-icon [iconSrc]="icons.profile"></app-icon>
+            <app-icon [iconsrc]="icons.profile"></app-icon>
         </a>
     </div>
     <div class="banner">
@@ -21,9 +21,9 @@
             <ul class="menu-list">
                 <li *ngFor="let page of section.pages">
                     <a class="menu-link" (click)="goToPage(page)">
-                        <span class="icon"> <app-icon [iconSrc]="page.icon"></app-icon></span>
+                        <span class="icon"> <app-icon [iconsrc]="page.icon"></app-icon></span>
                         <span class="text">{{page.label}}</span>
-                        <span *ngIf="isPageDone(page.id)" class="icon check"><app-icon iconSrc="check"></app-icon></span>
+                        <span *ngIf="isPageDone(page.id)" class="icon check"><app-icon iconsrc="check"></app-icon></span>
                     </a>
                 </li>
             </ul>

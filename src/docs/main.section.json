@@ -1,0 +1,46 @@
+{
+  "id": "2d48a5f4-c33b-4ea3-8231-cae66802433d",
+  "name": "main",
+  "pages": [
+    {
+        "icon": "visa",
+        "id": "visa",
+        "label": "European Union VISA",
+        "tabs": [
+            {
+            "label": "Overview",
+            "template": "<div class='header'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/visa.png' /></div><div class='content'><p>The visa for you and your family will be arranged by Mobiquity, to ready more about visa go to the Links tab  The HR department will contact with you to collect all needed documents. Make sure that you have following documents ready to share with the HR department: List of documents. In the second tab page you can find documents needed to apply for a visa for your family</p></div>"
+            },
+            {
+            "label": "Docs",
+            "template": "<div class='content'><ul class='list'><li class='list-item'><span class='icon'><app-icon iconsrc='id'></app-icon></span>or ID Document<br><small>Copy including pages with stamps</small></li><li class='list-item'><span class='icon'><app-icon iconsrc='marriage'></app-icon></span>Marriage certificate <br><small>In english and apostilled</small></li><li class='list-item'><span class='icon'><app-icon iconsrc='birth'></app-icon></span>Birth certificate <br><small>In english and apostilled</small></li><li class='list-item'><span class='icon'><app-icon iconsrc='document'></app-icon></span>Antecedents certificate <br><small>Signed</small></li></ul></div>"
+            },
+            {
+            "label": "Links",
+            "template": "<div class='content'><div class='card'><div class='card-image'><a class='image' href='https://www.iamexpat.nl/expat-info/official-issues/information-types-visa' target='_blank'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/iamexpat.png' alt='Iamexpat' /></a></div></div></div><div class='card'><div class='card-image'><a class='image' href='https://ind.nl/en/work/working_in_the_Netherlands' target='_blank'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/IND.png' alt='IND' /></a></div></div>"
+            }
+        ]
+    },
+    {
+        "icon": "housing",
+        "id": "housing",
+        "label": "Housing & Relocation",
+        "tabs": [
+            {
+            "label": "Overview",
+            "template": "<div class='header'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/housing.jpg' /></div><div class='content'><p>In the links section you can find a guide book how to find an appartment in the Netherlands. <br />You can find there following topics which will help you to find a perfect house:</p><ul><li>Suitable Neighbourhoods</li><li>How to get the opportunity to see a house</li><li>What should you keep in mind when choosing a house</li><li>Tips &amp; Tricks for house hunting</li></ul><p><br />On the Dutch house rental market is also a lot of scam so be aware about that. There are no occasions! If something is cheaper than average market price probably is a scam, and never transfer any deposit to private bank accounts. Most of Dutch people use services of housing agents and all transfers go through their bank accounts.</p></div>"
+            },
+            {
+            "label": "Docs",
+            "template": "<div class='content'><div class='list'><p class='list-item'><span class='icon'><app-icon iconsrc='visa'></app-icon></span><br/><span>Usually Required documents:</span><br/><ul><li>Id</li><li>Bank account</li><li>Recent payslips</li><li>Proof of income</li><li>Employer statement</li></ul></p></div></div>"
+            },
+            {
+            "label": "Links",
+            "template": "<div class='content'><div class='card'><div class='card-image'><a class='image' href='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/Mobiquity+Housing+Guide.pdf' target='_blank'><img src='https://media.bizj.us/view/img/11361239/mobiquitylogo.png' alt='Mobiquity Housing Guide' /></a></div></div><div class='card'><div class='card-image'><a class='image' href='https://www.expatica.com/nl/housing/renting/renting-in-amsterdam-445853/' target='_blank'><img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/expatica.png' alt='Expatica' /></a></div></div></div>"
+            }
+        ]
+    }
+       
+  ],
+  "title": "Main"
+}
