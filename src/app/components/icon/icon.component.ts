@@ -1,11 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 const ICON_SET = [
-  "links", 
+  "birth",
+  "links",
   "helpSupport", 
   "settings", 
   "info", 
-  "bsn", 
+  "bsn",
+  "document",
   "car", 
   "mob", 
   "exit", 
@@ -16,6 +18,7 @@ const ICON_SET = [
   "income", 
   "insurance", 
   "login", 
+  "marriage",
   "number", 
   "ovkaart", 
   "payslips", 
