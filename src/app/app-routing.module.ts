@@ -10,7 +10,7 @@ import { DynamicHTMLModule } from './components/dynamicHtml';
 import { IconComponent } from './components/icon/icon.component';
 import { ApplicationPipesModule } from './shareModules/app.share.module';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'login', loadChildren: () => import('./views/login/login.module').then(mod => mod.LoginModule) },
   { path: 'home', component: HomeComponent },
   { path: 'pageViewer', component: PageViewerComponent },

@@ -8,10 +8,11 @@ import { AppSyncService } from './services/appSync.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  name = 'ngMobHelp';
-
   constructor(private router: Router, private AppSync: AppSyncService) {
-    if(!localStorage.getItem('user')) {
+  }
+
+  ngOnInit(): void {
+    if(!localStorage || !localStorage.getItem('user')) {
       this.router.navigate(['/login']);
     } else {
       this.AppSync.configure(localStorage.getItem('token'));

@@ -28,7 +28,8 @@ export class DashboardComponent implements OnInit {
       // Get all sections available in the BD
       this.service.getSections().then(res => {
         // Show only the sections the user has marked
-        this.data = res.filter( section => this.userInfo.preferences.sections.findIndex(pSec => pSec === section.name) >= 0 ).sort((a, b) => a.order - b.order )
+        this.data = this.userInfo.preferences && this.userInfo.preferences.sections ? 
+          res.filter( section => this.userInfo.preferences.sections.findIndex(pSec => pSec === section.name) >= 0 ).sort((a, b) => a.order - b.order ) : []
         //Calculate the value per section
         const sectionValue = 100 / this.userInfo.preferences.sections.length;
         
@@ -43,11 +44,10 @@ export class DashboardComponent implements OnInit {
               return valor + (isDone ? pageValue : 0)
             }, 0)
           }, 0)
-        ); 
+        );
       }).catch(res => {
         this.handleError(res)
       });
-
     }).catch(res => {
       this.handleError(res)
     });

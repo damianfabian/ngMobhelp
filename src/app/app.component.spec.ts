@@ -1,35 +1,43 @@
-import { TestBed, async } from '@angular/core/testing';
+import 'zone.js/dist/zone-testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { Router } from '@angular/router';
+import { EmptyComponent } from '../tests/emptyComponent';
 
-describe('AppComponent', () => {
+fdescribe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let router: Router;
+
   beforeEach(async(() => {
+    localStorage.clear();
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+      imports: [RouterTestingModule.withRoutes([{ path: 'login', component: EmptyComponent }])],
+      declarations: [AppComponent, EmptyComponent]
+    }).compileComponents().then(() => {
+      fixture = TestBed.createComponent(AppComponent);
+      component = fixture.debugElement.componentInstance;
+      router = TestBed.get(Router);
+    });
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  afterEach(() => {
+    localStorage.clear();
+  })
 
-  it(`should have as title 'ngMobHelp'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ngMobHelp');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  fit('should redirect to Login', () => {
+    const spy = spyOn(router, 'navigate');
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ngMobHelp!');
+    expect(component).toBeTruthy();
+    expect(spy).toHaveBeenCalledWith(['/login']);
+  });
+
+  fit('should not redirect to Login', () => {
+    const spy = spyOn(router, 'navigate');
+    localStorage.setItem('user', 'username');
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+    expect(spy).not.toHaveBeenCalled();
   });
 });
