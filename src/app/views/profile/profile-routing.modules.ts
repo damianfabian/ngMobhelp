@@ -6,7 +6,7 @@ import { ProfileComponent } from './profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LinksComponent } from './links/links.component';
 import { HelpComponent } from './help/help.component';
-import { HandbookComponent } from './handbook/handbook.component';
+import { ViewIconsComponent } from './icons/icons.component';
 import { ApplicationPipesModule } from 'src/app/shareModules/app.share.module';
 
 
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
   { path: 'links', component: LinksComponent },
-  { path: 'handbook', component: HandbookComponent }
+  { path: 'icons', component: ViewIconsComponent }
 ];
 
 @NgModule({
@@ -23,7 +23,7 @@ const routes: Routes = [
     ProfileComponent,
     SettingsComponent,
     LinksComponent,
-    HandbookComponent,
+    ViewIconsComponent,
     HelpComponent
   ],
   imports: [

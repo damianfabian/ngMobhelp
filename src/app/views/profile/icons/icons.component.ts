@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Icons } from 'src/app/components/icon/icon.component';
 
 @Component({
-  selector: 'app-handbook',
-  templateUrl: './handbook.component.html',
-  styleUrls: ['./handbook.component.scss']
+  selector: 'app-viewicons',
+  templateUrl: './icons.component.html',
+  styleUrls: ['./icons.component.scss']
 })
-export class HandbookComponent implements OnInit {
+export class ViewIconsComponent implements OnInit {
   icons: Array<string>;
   IconList: any;
 

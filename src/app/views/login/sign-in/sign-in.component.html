@@ -20,7 +20,6 @@
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
-        {{loginForm.form.valid}}
         <p *ngIf="errorMessage" class="signin-component__error">{{errorMessage}}</p>
     </form>
 </div>
