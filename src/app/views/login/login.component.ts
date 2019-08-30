@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
     const userAttr = { name: data.name, picture: 'http://some/url/here' };
     this.awsService.changePassword(data.password, userAttr).then((res: { success: Boolean, error?: { message?: string } }) => {
       if(res.success) {
-        this.router.navigate(['/wizard']);
+        this.router.navigate(['/home']);
       } else {
         this.toastr.error(res.error!.message, 'Error');
       }
