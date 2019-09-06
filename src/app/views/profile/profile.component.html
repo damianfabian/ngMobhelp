@@ -22,10 +22,9 @@
                             <div class='icon'><app-icon [iconsrc]="icons.settings"></app-icon></div>
                             Settings
                         </a>
-                        <!-- TODO: Check what should be at the option. -->
-                        <!-- <a class='icon-text-list__link' [routerLink]="[ '/profile', 'handbook']">
+                        <a class='icon-text-list__link' [href]="handbookUrl" target="_blank">
                             <div class='icon'><app-icon [iconsrc]="icons.info"></app-icon></div>
-                            Employee Handbook</a> -->
+                            Employee Handbook</a>
                         <a class='icon-text-list__link' [routerLink]="[ '/profile', 'links']">
                             <div class='icon'><app-icon [iconsrc]="icons.links"></app-icon></div>
                             Useful Links
@@ -61,5 +60,5 @@
     title="Are you sure?"
     (clickOk)="onLogout()"
     (clickCancel)="toggleModal()"
-    ok="Logout"
+    ok="Log out"
 ></app-modal>

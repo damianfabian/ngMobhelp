@@ -20,15 +20,15 @@ export class ProfileComponent implements OnInit {
   handbookUrl: string;
 
   constructor(private service: APIService, private router: Router, private cognito: CognitoService) {   
-      const cognitoUser = this.cognito.getUserAtributes();
-      this.fullName = cognitoUser.name;
-      this.initials = cognitoUser.name.length >= 2 ? cognitoUser.name.substring(0, 2) : cognitoUser.name[0];
-      this.version = config.version;
-      this.icons = Icons;
-      this.handbookUrl = config.handbookUrl;
   }
 
   ngOnInit() {
+    const cognitoUser = this.cognito.getUserAtributes();
+    this.fullName = cognitoUser.name;
+    this.initials = cognitoUser.name.length >= 2 ? cognitoUser.name.substring(0, 2) : cognitoUser.name[0];
+    this.version = config.version;
+    this.icons = Icons;
+    this.handbookUrl = config.handbookUrl;
   }
 
   onLogout() {

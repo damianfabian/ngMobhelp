@@ -3,8 +3,8 @@ import { Icons } from 'src/app/components/icon/icon.component';
 
 @Component({
   selector: 'app-viewicons',
-  templateUrl: './icons.component.html',
-  styleUrls: ['./icons.component.scss']
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
 export class ViewIconsComponent implements OnInit {
   icons: Array<string>;
