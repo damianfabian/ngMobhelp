@@ -1,42 +1,53 @@
 @import '../../../style/base';
 
 .modal-component {
-    .modal-background {
-        background-color: rgba(10, 10, 10, 0.5)
-    }
+
     &.is-active {
         animation: showModal 0.3s linear both;
     }
-    &__content {
-        width: 80%;
-        max-width: 450px;
-        background-color: $white;
+
+    .modal-background {
+        background-color: rgba(10, 10, 10, 0.5);
+        display: flex;
+        padding: 0 1rem;
     }
-    &__header h2 {
-      @include title();
-      margin-top: 8px;
-      margin-bottom: $size-6;
+    
+    &__content {
+        max-width: 450px;
+        padding: 1.5rem;
+        background-color: $white;
+        margin: auto;
+        height: fit-content;
+    }
+
+    &__header {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
     }
   
     &__text {
-      letter-spacing: 0.52px;
-      font-size: $size-7;
-      padding: 0 $size-6 $size-4 $size-4;
-      margin: 0;
-      color: $black-smoke;
-      text-align: left;
+        letter-spacing: 0.52px;
+        color: $black-smoke;
+        font-size: 0.75rem;
+        margin-bottom: 1.25rem;
+        @include tablet {
+            font-size: 1rem;
+        }
     }
   
     &__actions {
       display: flex;
-      padding: 0 $size-4;
-      margin-bottom: $size-4;
       justify-content: flex-end;
       button {
-        margin: 0 $size-5;
-        color: $primary;
-        font-size: $size-6;
-        text-transform: uppercase;
+        margin-left: 1rem;
+        padding: 0.25rem;
+        @include tablet {
+            font-size: 1rem;
+        }
       }
     }
 }

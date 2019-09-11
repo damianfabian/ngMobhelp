@@ -5,6 +5,8 @@ $terciary: rgb(255, 255, 255);
 $white: rgb(255, 255, 255);
 $white-smoke: rgba(255, 255, 255, .6);
 $black-smoke: rgba(0, 0, 0, .6);
+$brownish-grey: rgb(116, 116, 116);
+$danger: $secondary;
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
@@ -29,3 +31,6 @@ $list-item-border: none !default;
 $list-item-active-background-color: $black !default;
 $list-item-active-color: $black !default;
 $list-item-hover-background-color: transparent !default;
+
+$border-radius: 2px;
+$box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);

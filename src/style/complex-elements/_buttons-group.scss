@@ -1,0 +1,13 @@
+@import '../base';
+@import "../general/buttons";
+
+%buttons-group {
+  position: absolute;
+  bottom: $size-6;
+  left: $size-6;
+  right: $size-6;
+
+  @include tablet {
+    position: inherit;
+  }
+}

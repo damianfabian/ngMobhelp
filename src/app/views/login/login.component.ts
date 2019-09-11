@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
     private appSync: AppSyncService,
     private APIService: APIService
   ) {
-    if(localStorage.getItem('user')) {
-      this.router.navigate(['/dashboard']);
-    }
+    // if(localStorage.getItem('user')) {
+    //   this.router.navigate(['/dashboard']);
+    // }
   }
 
   ngOnInit() {

@@ -1,13 +1,12 @@
 <div class="login-component">
-    <div class="login-component__card">
-
-        <div class="login-component__card-title">
-        <img src="assets/login.svg" alt="login" />
+    <div class="container">
+        <div class="login-component__header">
+            <img src="assets/login.svg" alt="login" />
         </div>
+    </div>
 
-        <div class="login-component__content">
-            <app-sign-in *ngIf="!requireNewPassword" (Login)="onLogin($event)"></app-sign-in>
-            <app-change-password *ngIf="requireNewPassword" (Submit)="onChangePassword($event)"></app-change-password>
-        </div>
+    <div class="login-component__form">
+        <app-sign-in *ngIf="!requireNewPassword" (Login)="onLogin($event)"></app-sign-in>
+        <app-change-password *ngIf="requireNewPassword" (Submit)="onChangePassword($event)"></app-change-password>
     </div>
 </div>

@@ -1,73 +1,86 @@
 @import "~src/style/_base.scss";
 
-.dashboard .header {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-}
-.dashboard .header .title {
-    flex-basis: 80%;
-    padding: 1rem;
-    margin-bottom: 0;
-    @include title();
-}
-.dashboard .header .icon {
-    font-size: 20px;
-    line-height: 1.47;
-    flex-basis: 20%;
-    padding: 1rem;
-}
-.dashboard .banner img {
-    width: 100%;
-    max-height: 100px;
-}
-.dashboard .content {
-    padding: $size-6;
-}
-.dashboard .content h2 {
-    @include title();
-    margin-top: $size-6;
-}
-.dashboard .content span {
-    font-size: 12px;
-    display: block;
-}
-.dashboard .content .progress {
-    height: 4px;
-}
-.dashboard .menu .menu-label {
-    border-top: 1px solid $grey-lighter;
-    padding-top: $size-7;
-}
-.dashboard .menu .menu-label span {
-    padding-left: $size-6;
-    color: $black-smoke;
-    font-size: 14px;
-}
-.dashboard .menu .menu-list {
-    padding: 0 $size-6;
-}
-.dashboard .menu .menu-list li {
-    padding: $size-6 0;
-}
-.dashboard .menu .menu-list .menu-link {
-    display: flex;
-    flex: 1;
-    font-size: 14px;
-    color: $black;
-}
-.dashboard .menu .menu-list .menu-link .icon {
-    font-size: $size-6;
-    color: $primary;
-    margin-right: $size-6;
-    flex-basis: 10%;
-}
-.dashboard .menu .menu-list .menu-link .text {
-    flex-basis: 80%;
-}
-.dashboard .menu .menu-list .menu-link .check {
-    flex-basis: 10%;
-    app-icon {
-        width: 24px;
+.dashboard {
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 1rem;
+
+        .title {
+            margin-bottom: 0;
+            font-size: 1.125rem;
+            @include title();
+
+            @include tablet {
+                font-size: 1.875rem;
+            }
+        }
+
+        .icon {
+            font-size: 1.25rem;
+            line-height: 1.47;
+        }
     }
+
+    .banner {
+        text-align: center;
+        
+        img {
+            width: 100%;
+            max-height: 100px;
+        
+            @include tablet {
+                max-width: 513px;
+                max-height: 150px;
+            }   
+        }
+    }
+
+    .content {
+        padding: $size-6;
+
+        h2 {
+            @include title();
+            font-size: 1.125rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+
+            @include tablet {
+                font-size: 1.875rem;
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        span {
+            display: block;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+
+            @include tablet {
+                font-size: 1.125rem;
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        .progress {
+            height: 4px;
+        }
+    }
+
+
+    .menu {
+        .menu-label {
+            border-top: 1px solid $grey-lighter;
+            padding-top: 0.5rem;
+            line-height: 1;
+
+            span {
+                padding-left: $size-6;
+                color: $black-smoke;
+                font-size: 0.875rem;
+            }
+        }
+    } 
 }

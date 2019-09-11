@@ -1,44 +1,65 @@
 <div class="profile">
-    <a [routerLink]="[ '/dashboard' ]" class="back-link"><app-icon [iconsrc]="icons.backReverse" alt="Go Back"></app-icon></a>
-    <div class="header">
-        <div class="avatar">
-            <img *ngIf="avatar" [src]="avatar" [alt]="fullName" />
-            <span *ngIf="!avatar" class="initials">m</span>
-        </div>
-        <h3 class="name">{{fullName}}</h3>
-    </div>
-    <div class="content">
-        <div class='list'>
-            <a class='list-item' [routerLink]="[ '/profile', 'settings']">
-                <div class='icon'><app-icon [iconsrc]="icons.settings"></app-icon></div>
-                Settings
-            </a>
-            <a class='list-item' [href]="handbookUrl" target="_blank">
-                <div class='icon'><app-icon [iconsrc]="icons.info"></app-icon></div>
-                Employee Handbook</a>
-            <a class='list-item' [routerLink]="[ '/profile', 'links']">
-                <div class='icon'><app-icon [iconsrc]="icons.links"></app-icon></div>
-                Useful Links
-            </a>
-            <a class='list-item' [routerLink]="[ '/profile', 'help']">
-                <div class='icon'><app-icon [iconsrc]="icons.helpSupport"></app-icon></div>
-                Help
-            </a>
-            <a class='list-item' (click)="toggleModal()">
-                    <div class='icon'><app-icon [iconsrc]="icons.exit"></app-icon></div>
-                Logout
-            </a>
+    <div class="container">
+        <div class="back-link">
+            <a [routerLink]="[ '/dashboard' ]"><app-icon [iconsrc]="icons.backReverse" alt="Go Back"></app-icon></a>
         </div>
     </div>
-    <div class="copyright">
-        <div class='list'>
-            <p>Mobhelper {{version}}</p>
-            <p>©2019 Mobiquity Inc., all rights reserved.</p>
-            <a href="#">Privacy Policy</a>
-            <p>Always be kind</p>
+    <div class="container">
+        <div class="header">
+            <div class="avatar">
+                <img *ngIf="avatar" [src]="avatar" [alt]="fullName" />
+                <span *ngIf="!avatar" class="initials">m</span>
+            </div>
+            <h3 class="name">{{fullName}}</h3>
+        </div>
+    </div>
+    <div class="container">
+        <div class='columns'>
+            <div class='column is-half-tablet'>
+                <div class="content">
+                    <div class='icon-text-list'>
+                        <a class='icon-text-list__link' [routerLink]="[ '/profile', 'settings']">
+                            <div class='icon'><app-icon [iconsrc]="icons.settings"></app-icon></div>
+                            Settings
+                        </a>
+                        <!-- TODO: Check what should be at the option. -->
+                        <!-- <a class='icon-text-list__link' [routerLink]="[ '/profile', 'handbook']">
+                            <div class='icon'><app-icon [iconsrc]="icons.info"></app-icon></div>
+                            Employee Handbook</a> -->
+                        <a class='icon-text-list__link' [routerLink]="[ '/profile', 'links']">
+                            <div class='icon'><app-icon [iconsrc]="icons.links"></app-icon></div>
+                            Useful Links
+                        </a>
+                        <a class='icon-text-list__link' [routerLink]="[ '/profile', 'help']">
+                            <div class='icon'><app-icon [iconsrc]="icons.helpSupport"></app-icon></div>
+                            Help
+                        </a>
+                        <a class='icon-text-list__link' (click)="toggleModal()">
+                                <div class='icon'><app-icon [iconsrc]="icons.exit"></app-icon></div>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class='column is-half-tablet'>
+                <div class="copyright">
+                    <div class='list'>
+                        <p>Mobhelper {{version}}</p>
+                        <p>©2019 Mobiquity Inc., all rights reserved.</p>
+                        <p><a href="#">Privacy Policy</a></p>
+                        <p>Always be kind</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<app-modal [show]="showModal" message="Please confirm that you'd like to log out of your account" title="Are you sure?"
-    (clickOk)="onLogout()" (clickCancel)="toggleModal()" ok="Logout"></app-modal>
+<app-modal
+    [show]="showModal"
+    message="Please confirm that you'd like to log out of your account"
+    title="Are you sure?"
+    (clickOk)="onLogout()"
+    (clickCancel)="toggleModal()"
+    ok="Logout"
+></app-modal>

@@ -4,13 +4,13 @@ $switch-background-active: rgba(255, 255, 255, 0.7) !default
 $switch-radius: $radius !default
 $switch-paddle-background: $white !default
 $switch-paddle-background-active: $primary !default
-$switch-paddle-offset: 0.25rem !default
+$switch-paddle-offset: -0.25rem !default
 $switch-paddle-transition: all 0.25s ease-out !default
 $switch-focus: 1px dotted $grey-light !default
 
 =switch-size($size)
-	$switch-height: $size * 1.5
-	$switch-width: $switch-height * 2
+	$switch-height: $size * 0.85
+	$switch-width: $switch-height * 2.4	
 	$paddle-height: $switch-height - ($switch-paddle-offset * 2)
 	$paddle-width: $switch-height - ($switch-paddle-offset * 2)
 	$paddle-active-offest: $switch-width - $paddle-width - ($switch-paddle-offset * 1.5)

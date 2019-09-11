@@ -1,0 +1,34 @@
+STYLING
+
+Dashboard:
+  [ ] What image to show on the top of the screen? Right now there is a grey rectangle in Zeplin.
+
+Tabs content:
+  Docs tab
+    Update content css classes:
+      [x] ul.list => ul.icon-text-list
+      [x] li.list-item => li.icon-text-list__link
+  Links tab
+    Update content css classes:
+      [x] "columns", "column is-half-tablet"
+      [x] Update links (same as BSN section has)
+      [x] Remove class='image' from links tabs
+      [x] Change all the cloud links html data and change
+          "Text <br> <small>subtext</small>" to
+          "<div class='text'>Text <small>subtext</small></div>"
+          (Check BSN page to see the issue).
+      [x] Update google docs HTMLs
+    Fix templates issues
+      [x] Visa
+      [x] Dutch Mobile number
+
+
+Profile pages:
+  [x] Help
+  [x] Useful Links
+  [x] Settings
+  [ ] Settings has no "Save" button?
+  [ ] No Zeplin designs for "Employee Handbook"
+
+[x] Logout dialog popup
+[x] What happened to login page styles?
