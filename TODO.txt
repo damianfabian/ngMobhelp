@@ -30,5 +30,5 @@ Profile pages:
   [ ] Settings has no "Save" button?
   [ ] No Zeplin designs for "Employee Handbook"
 
-[ ] Logout dialog popup
+[x] Logout dialog popup
 [x] What happened to login page styles?
