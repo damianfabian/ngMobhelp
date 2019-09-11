@@ -1,5 +1,6 @@
-<div class="dashboard">
+<div class="container dashboard">
     <div class="header">
+        <div class='icon'></div> <!-- For styling purposes -->
         <h2 class="title">MobHelp</h2>
         <a [routerLink]="[ '/profile']" class="icon">
             <app-icon [iconsrc]="icons.profile"></app-icon>
@@ -15,11 +16,11 @@
             <p class="menu-label">
                 <span>{{section.title}}</span>
             </p>
-            <ul class="menu-list">
+            <ul class="icon-text-list">
                 <li *ngFor="let page of section.pages">
-                    <a class="menu-link" (click)="goToPage(page)">
-                        <span class="icon"> <app-icon [iconsrc]="page.icon"></app-icon></span>
-                        <span class="text">{{page.label}}</span>
+                    <a class="icon-text-list__link" (click)="goToPage(page)">
+                        <span class="icon"><app-icon [iconsrc]="page.icon"></app-icon></span>
+                        <span>{{page.label}}</span>
                         <span *ngIf="isPageDone(page.id)" class="icon check"><app-icon iconsrc="check"></app-icon></span>
                     </a>
                 </li>

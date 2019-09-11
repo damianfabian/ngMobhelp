@@ -1,33 +1,48 @@
 <div class="links-page">
-    <nav class="panel">
-        <div class="header">
+    <div class="container">
+        <div class="back-title-header">
             <a [routerLink]="[ '/profile' ]" class="back-link"><app-icon [iconsrc]="icons.back" alt="Go Back"></app-icon></a>
-            <span class="title">Useful Links</span>
+            <div class="title">Useful Links</div>
         </div>
-        <div class="panel-block">
-            <a class="control" href="https://www.reddit.com/r/Amsterdam" target="_blank">
-                <img src="https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/reddit.png" alt="Reddit" />
-            </a>
+        <div class="card-image-list">
+            <div class='columns'>
+                <div class='card column is-half-tablet'>
+                    <div class='card-image'>
+                        <a href='https://www.expatica.com/nl/housing/renting/renting-in-amsterdam-445853/' target='_blank'>
+                            <img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/expatica.png' alt='Expatica' />
+                        </a>
+                    </div>
+                </div>
+                <div class='card column is-half-tablet'>
+                    <div class='card-image'>
+                        <a href='https://www.iamexpat.nl/expat-info/official-issues/information-types-visa' target='_blank'>
+                            <img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/iamexpat.png' alt='Iamexpat' />
+                        </a>
+                    </div>
+                </div>
+                <div class='card column is-half-tablet'>
+                    <div class='card-image'>
+                        <a href='https://ind.nl/en/work/working_in_the_Netherlands' target='_blank'>
+                            <img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/IND.png' alt='IND' />
+                        </a>
+                    </div>
+                </div>
+                <div class='card column is-half-tablet'>
+                    <div class='card-image'>
+                        <a href='https://www.independer.nl/zorgverzekering/info/affiliate/awin?refer=m4nzorg&utm_source=awin_zorg&utm_medium=affiliate&utm_campaign=376101&awc=8558_1565859097_5533ecd19425ae022bd2e1dcac011a9c&network=m4n' target='_blank'>
+                            <img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/independer.png' alt='Independer'/>
+                        </a>
+                    </div>
+                </div>
+                <div class='card column is-half-tablet'>
+                    <div class='card-image'>
+                        <a href='https://www.iamsterdam.com/en/living/take-care-of-official-matters/registration/citizen-service-number' target='_blank'>
+                            <img src='https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/iamsterdam.png' alt='I amsterdam' />
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="panel-block">
-            <a class="control" href="https://www.iamexpat.nl/" target="_blank">
-                <img src="https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/iamexpat.png" alt="I am expat" />
-            </a>
-        </div>
-        <div class="panel-block">
-            <a class="control" href="https://www.iamsterdam.com" target="_blank">
-                <img src="https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/iamsterdam.png" alt="I Amsterdam" />
-            </a>
-        </div>
-        <div class="panel-block">
-            <a class="control" href="https://9292.nl/" target="_blank">
-                <img src="https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/9292.png" alt="9292" />
-            </a>
-        </div>
-        <div class="panel-block">
-            <a class="control" href="https://www.buienradar.nl" target="_blank">
-                <img src="https://mobhelpdocuments.s3.eu-central-1.amazonaws.com/img/buienradar.png" alt="Buienradar" />
-            </a>
-        </div>
-    </nav>
+    </div>
 </div>

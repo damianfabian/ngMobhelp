@@ -1,0 +1,72 @@
+button:focus {
+	outline: none;
+}
+
+button {
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: $size-7 6.25rem;
+  line-height: 1;
+  height: auto;
+  font-weight: 700;
+  display: block;
+  width: 100%;
+  border: 1px solid $primary;
+  border-color: $primary;
+  border-radius: $border-radius;
+  background: $primary;
+  color: $white;
+  box-shadow: $box-shadow;
+
+  @include tablet {
+    width: auto;
+    margin: auto;
+  }
+
+  &:hover, &:focus {
+    background: darken($primary, 10%);
+    border-color: darken($primary, 10%);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &[disabled] {
+    background-color: $grey-light;
+    border-color: $grey-light;
+    color: $white;
+    cursor: not-allowed;
+  }
+
+  &.inverse {
+    background: $white;
+    color: $primary;
+
+    &:hover, &:focus {
+      color: darken($primary, 5%);
+      background-color: darken($white, 2%);
+      border-color: darken($primary, 2%);
+    }
+  }
+
+  &.link {
+    background: transparent;
+    color: $primary;
+    text-transform: uppercase;
+    border: none;
+    padding: 0.25rem;
+    box-shadow: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    width: auto;
+
+    &:hover, &:focus {
+      color: darken($primary, 5%);
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+}

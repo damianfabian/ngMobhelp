@@ -1,3 +1,9 @@
+// Import this module anywhere you need variables, etc.
 @import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
-@import "variables.scss";
-@import "mixins.scss";
+@import "./base-content/variables";
+@import "./base-content/mixins";
+
+html, body {
+  height: 100%;
+  overflow: auto;
+}

@@ -1,29 +1,46 @@
 <div class="settings-page">
-    <nav class="panel">
-        <div class="header">
-            <a [routerLink]="[ '/profile' ]" class="back-link"><app-icon [iconsrc]="icons.back" alt="Go Back"></app-icon></a>
-            <span class="title">Settings</span>
+    <div class="container">
+
+        <div class="back-title-header">
+            <a [routerLink]="[ '/profile' ]" class="back-link">
+                <app-icon [iconsrc]="icons.back" alt="Go Back"></app-icon>
+            </a>
+            <div class="title">Settings</div>
         </div>
-        <div class="panel-block">
-            <p class="control has-icons-left">
-                <input class="input is-small" type="text" placeholder="search" (input)="onSearch($event)">
-                <span class="icon is-small is-left">
-                    <app-icon iconsrc="search"></app-icon>
-                </span>
-            </p>
-        </div>
-        <label class="panel-block" *ngFor="let topic of (topics | filter: searcher : 'title')">
-            <input id="switchRoundedDefault" type="checkbox" name="switchRoundedDefault"
-                class="switch is-rounded .is-rtl" [checked]="topic.active" (change)="changeSettings($event, topic)">
-            <div class="label">
-                <label for="switchRoundedDefault">{{topic.title}}</label>
-                <span>{{topic.description}}</span>
+
+        <!-- <div class="control has-icons-left">
+            <input type="text" placeholder="search" (input)="onSearch($event)">
+            <span class="icon is-small is-left">
+                <app-icon iconsrc="search"></app-icon>
+            </span>
+        </div> -->
+
+
+        <div class="content">
+            <div class='option-wrapper' *ngFor="let topic of (topics | filter: searcher : 'title'); index as i">
+                <label class="option">
+                    <input
+                        id="switchRoundedDefault{{i}}"
+                        type="checkbox"
+                        name="switchRoundedDefault{{i}}"
+                        class="switch is-rounded is-rtl"
+                        [checked]="topic.active"
+                        (change)="changeSettings($event, topic)"
+                    >
+                    <div class="label" (click)="changeSettings($event, topic)">
+                        <label for="switchRoundedDefault{{i}}">{{topic.title}}</label>
+                        <div class='description'>{{topic.description}}</div>
+                    </div>
+                </label>
             </div>
-        </label>
-    </nav>
-    <div class="panel-block bottom">
-        <button class="button is-fullwidth " (click)="saveSettings()">
-            Save
-        </button>
+
+            <div class="settings-page__actions">
+                <button
+                    class="inverse"
+                    (click)="saveSettings()"
+                >Save</button>
+            </div>
+        </div>
+    
     </div>
 </div>

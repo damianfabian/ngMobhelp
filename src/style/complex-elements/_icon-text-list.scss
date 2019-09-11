@@ -1,0 +1,52 @@
+.icon-text-list {
+  padding: 0 $size-6;
+  li {
+      padding: $size-6 0;
+  }
+  
+  &__link {
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+      color: $black;
+      cursor: pointer;
+
+      @include tablet {
+          font-size: 1.25rem;
+      }
+
+      .text {
+        line-height: 1.25;
+        small {
+            color: rgba(0, 0, 0, 0.54);
+            display: block;
+        }
+      }
+      
+
+      .icon {
+          color: $primary;
+          margin-right: $size-6;
+          line-height: 1;
+          
+          height: 40px !important;
+          width: 40px !important;
+          @include tablet {
+              width: 60px !important;
+              height: 60px !important;
+          }
+
+          app-icon {
+              width: 100%;
+              height: 100%;
+          }
+      }
+      .check {
+          app-icon {
+              width: 24px;
+          }
+      }
+
+  }
+  
+}

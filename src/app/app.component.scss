@@ -1,5 +1,6 @@
 @import "~src/style/_base.scss";
 
 .page {
-    height: 100vh;
+    height: 100%;
+    position: relative;
 }

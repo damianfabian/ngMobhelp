@@ -1,56 +1,79 @@
 @import "~src/style/_base.scss";
+@import "~src/style/complex-elements/buttons-group";
+
 .settings-page {
     height: 100%;
     background-color: #29ade4;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.settings-page .header {
-    background-color: #29ade4;
-    display: flex;
-    flex-direction: column;
-    border: none;
-    border-bottom: 1px solid white;
-    padding: 0.5em 0.75em;
-}
-.settings-page .header .title {
-    font-size: 19px;
-    margin: 24px 0 18px;
-}
-.settings-page .panel-block {
-    border: none;
-}
-.settings-page .panel-block .control .icon app-icon {
-    width: 12px;
-}
-.settings-page .panel-block.bottom {
-    bottom: 0;
-}
-.settings-page .panel-block .label {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-}
-.title,
-.settings-page .panel-block .label label {
-    text-align: left;
-    font-size: .9rem;
-    color: white;
-    width: 100%;
-}
-.subtitle,
-.settings-page .panel-block .label span {
-    text-align: left;
-    font-size: .7rem;
-    color: rgba(255, 255, 255, 0.75);
-    width: 100%;
-}
 
-.settings-page label.panel-block:hover {
-    background-color: transparent;
-}
+    input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        left: 3px;
+    }
+    input::-moz-placeholder { /* Firefox 19+ */
+        left: 3px;
+    }
+    input:-ms-input-placeholder { /* IE 10+ */
+        left: 3px;
+        position: relative;
+    }
+    input:-moz-placeholder { /* Firefox 18- */
+        left: 3px;
+    }
 
-.settings-page .back-link {
-    width: 24px;
+    label.panel-block:hover {
+        background-color: transparent;
+    }
+
+    .control .icon app-icon {
+        width: 12px;
+    }
+
+    .bottom {
+        bottom: 0;
+    }
+
+    .content {
+        padding: 0 0.75rem;
+
+        @include tablet {
+            padding: 0;
+        }
+
+        .option-wrapper {
+            margin-bottom: 20px;
+    
+            .option {
+                border: none;
+        
+                label {
+                    text-align: left;
+                    font-size: 0.875rem;
+                    color: white;
+                    width: 100%;
+                    cursor: pointer;
+                    font-weight: normal;
+    
+                    @include tablet {
+                        font-size: 1.25rem;
+                    }
+                }
+        
+                .description {
+                    text-align: left;
+                    font-size: .75rem;
+                    color: rgba(255, 255, 255, 0.75);
+                    width: 100%;
+                    display: block;
+                    font-weight: normal;
+    
+                    @include tablet {
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+        }
+
+        &__actions {
+            @extend %buttons-group;
+        }
+    }
 }

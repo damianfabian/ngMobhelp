@@ -1,0 +1,10 @@
+.back-link {
+  $icon-size: 24px;
+  $icon-size-tablet: 36px;
+  width: $icon-size;
+  height: $icon-size;
+  @include tablet {
+      width: $icon-size-tablet;
+      height: $icon-size-tablet;
+  }
+}

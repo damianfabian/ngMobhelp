@@ -1,8 +1,15 @@
-@import "base.scss";
-@import "framework.scss";
-@import "fonts.scss";
-@import "helpers.scss";
-@import "common.scss";
+@import "base";
+@import "./bulma/framework";
+@import "./general/fonts";
+@import "helpers";
+@import "./general/inputs";
+@import "./general/buttons";
+@import "./general/images";
+@import "./complex-elements/buttons-group";
+@import "./complex-elements/icon-text-list";
+@import "./complex-elements/back_title_header";
+@import "./complex-elements/card-image-list";
+@import "./simple-elements/back-link";
 
 // Libraries
 @import '~ngx-toastr/toastr';

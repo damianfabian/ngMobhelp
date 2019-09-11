@@ -1,54 +1,117 @@
 @import '../../../style/base';
+@import "../../../../node_modules/bulma/sass/elements/container.sass";
 .profile {
-    display: flex;
-    flex-direction: column;
-}
-.profile .back-link {
-    margin: $size-6;
-    width: 24px;
-}
-.profile .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: $size-1;
-    margin-bottom: $size-3;
-}
-.profile .header .avatar {
-    width: 66px;
-    height: 66px;
-    border-radius: 33px;
-    background-color: $primary;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.profile .header .initials {
-    @include title();
-    color: $white;
-    font-size: 30px;
-}
-.profile .header .name {
-    @include title();
-    margin-top: $size-7;
-}
-.profile .content .list .list-item {
-    color: $black;
-    display: flex;
-    height: 56px;
-}
-.profile .content .list .list-item .icon {
-    font-size: 20px;
-    color: $primary;
-    padding-left: $size-6;
-    margin-right: $size-7;
-    width: 48px;
-    height: 30px;
+    // display: flex;
+    // flex-direction: column;
     
-}
-.profile .copyright {
-    padding: $size-6;
-}
-.profile .copyright p {
-    padding-bottom: $size-7;
+    .back-link {
+        margin: $size-6;
+        @include tablet {
+            margin: $size-6 0;
+        }
+        
+    }
+
+    .container {
+        width: 100%;
+        @include mobile {
+            display: flex;
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: $size-1 0 $size-3 0;
+        width: 100%;
+
+        @include tablet {
+            flex-direction: row;
+            margin-top: 6rem;
+        }
+
+        .avatar {
+            $avatar-size: 65px;
+            $avatar-size-tablet: 98px; 
+            width: $avatar-size;
+            height: $avatar-size;
+            border-radius: 100px;
+            background-color: $primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include tablet {
+                width: $avatar-size-tablet;
+                height: $avatar-size-tablet;
+            }
+        }
+
+        .initials {
+            @include title();
+            color: $white;
+            font-size: 1.875rem;
+            margin-top: -2px;
+            @include tablet {
+                margin-top: -6px;
+                margin-right: -2px;
+                font-size: 2.75rem;
+            }
+        }
+
+        .name {
+            @include title();
+            margin-top: $size-7;
+            font-size: 1.125rem;
+
+            @include tablet {
+                margin: 0 0 0 $size-7;
+                font-size: 1.875rem;
+            }
+        }
+    }
+
+
+    .content {
+        .icon-text-list {
+            padding: 0 0.5rem;
+            @include tablet {
+                padding: 0;
+            }
+            
+            .icon-text-list__link {
+                padding: 0.25rem 0;
+                @include tablet {
+                    padding: 0.5rem;
+                }
+
+                .icon {
+                    color: $primary;
+                    margin-right: $size-7;
+        
+                    app-icon {
+                        padding: 0.5rem;
+                    }
+                }
+            }
+            
+        }
+        
+    }
+
+    .copyright {
+        padding: 0 $size-7;
+        font-size: 0.75rem;
+
+        @include tablet {
+            font-size: 1.125rem;
+            padding: $size-7;
+        }
+
+        p {
+            padding: $size-7;
+        }
+    }
+
 }

@@ -1,18 +1,26 @@
 <div class="home-component">
-    <div class="home-component__wrapper">
-        <div class="home-component__image image">
-            <img src="assets/welcome.png" alt="Welcome" />
-        </div>
+    
+    <div class='home-component__wrapper'>
 
         <div class="home-component__content">
-            <h2 class="home-component__content-title">Welcome to Mobiquity</h2>
-            <p class="home-component__content-text">
+            <div class="home-component__image image has-text-centered">
+                <img src="assets/welcome.png" alt="Welcome" />
+            </div>
+
+            <h2 class="home-component__content-title has-text-centered-tablet">Welcome to Mobiquity</h2>
+            <p class="home-component__content-text has-text-centered-tablet">
                 We are excited to have you on board.<br/>
                 Let’s help you transition smoothly to the Netherlands.
             </p>
         </div>
+
+        <div class="home-component__actions">
+            <button
+                (click)="onContinue()"
+                class="button is-fullwidth-mobile inverse"
+            >Continue</button>
+        </div>
+
     </div>
-    <div class="home-component__actions">
-        <a (click)="onContinue()" class="button is-large is-fullwidth">Continue</a>
-    </div>
+
 </div>
