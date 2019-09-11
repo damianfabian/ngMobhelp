@@ -37,7 +37,7 @@ const ICON_SET = [
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']
 })
-export class IconComponent implements OnInit, OnMount {
+class IconComponent implements OnInit, OnMount {
   @Input() iconsrc!: string;
   icon: String;
   validator: RegExp;
@@ -57,11 +57,11 @@ export class IconComponent implements OnInit, OnMount {
   }
 }
 
-export type IconsType = {
+type IconsType = {
   [s: string]: string
 };
 
 const Icons: IconsType = {};
 ICON_SET.forEach(item => Icons[item] = item);
 
-export { Icons };
+export { Icons, IconComponent, IconsType };

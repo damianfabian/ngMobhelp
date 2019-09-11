@@ -15,16 +15,16 @@ export class PageViewerComponent implements OnInit {
   icons: IconsType;
 
   constructor(private service: APIService, private router: Router, private toastr: ToastrService) {
-    this.pageInfo = service.getCurrentPage();
     this.icons = Icons;
+  }
+
+  ngOnInit() {
+    this.pageInfo = this.service.getCurrentPage();
     if(this.pageInfo === null) {
       this.router.navigate(['dashboard']);
     } else {
       this.active = this.pageInfo.tabs[0].label;
     }
-  }
-
-  ngOnInit() {
   }
 
   showContent(tab: { label: string, template: string }) {

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { ProfileRoutingModule } from './views/profile/profile-routing.modules';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CognitoService } from './services/cognitoService';

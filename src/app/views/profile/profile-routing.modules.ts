@@ -6,7 +6,7 @@ import { ProfileComponent } from './profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LinksComponent } from './links/links.component';
 import { HelpComponent } from './help/help.component';
-import { ViewIconsComponent } from './icons/icons.component';
+import { ViewIconsComponent } from './resources/list.component';
 import { ApplicationPipesModule } from 'src/app/shareModules/app.share.module';
 
 

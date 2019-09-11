@@ -36,12 +36,12 @@ export class WizardComponent implements OnInit {
   async ngOnInit() {    
     this.service.getUserInfo().then(res => {
       this.userInfo = res;
-      this.appSync.AllSections().then(temp => {
-        this.topics = temp.map(section => ({ active: false, name: section.name, title: section.title, description: section.description }) );
-        this.ref.detectChanges();
-      }).catch(res => {
-        console.log('Error on Loading Data ', res.errors)
-      });
+    });
+    this.appSync.AllSections().then(temp => {
+      this.topics = temp.map(section => ({ active: false, name: section.name, title: section.title, description: section.description }) );
+      this.ref.detectChanges();
+    }).catch(res => {
+      console.log('Error on Loading Data ', res.errors)
     });
   }
 

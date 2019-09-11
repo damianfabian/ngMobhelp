@@ -45,7 +45,7 @@ fdescribe('HomeComponent', () => {
     const router = TestBed.get(Router);
     spyOn(API, 'getUserInfo').and.returnValue(Promise.resolve(mainPreferences));
     spyOn(router, 'navigate');
-    fixture.nativeElement.querySelector('.home-component__actions a').click();
+    fixture.nativeElement.querySelector('.home-component__actions button').click();
     fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(router.navigate).toHaveBeenCalledWith(['dashboard']);
@@ -57,7 +57,7 @@ fdescribe('HomeComponent', () => {
     const router = TestBed.get(Router);
     spyOn(API, 'getUserInfo').and.returnValue(Promise.resolve({}));
     spyOn(router, 'navigate');
-    fixture.nativeElement.querySelector('.home-component__actions a').click();
+    fixture.nativeElement.querySelector('.home-component__actions button').click();
     fixture.detectChanges();
     fixture.whenStable().then(() => {
       expect(router.navigate).toHaveBeenCalledWith(['wizard']);

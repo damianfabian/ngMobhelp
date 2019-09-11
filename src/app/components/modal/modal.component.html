@@ -1,11 +1,11 @@
-<div [ngClass]="{'is-active': show}" class="modal modal-component">
+<div [ngClass]="{'is-active': show}" *ngIf="show" class="modal modal-component">
     <div class="modal-background">
         <div class="modal-component__content">
             <h2 class="modal-component__header">{{title}}</h2>
             <p class="modal-component__text">{{message}}</p>
             <div class="modal-component__actions">
-                <button class="link" (click)="onClick(clickOk)">LOG OUT</button>
-                <button class="link" (click)="onClick(clickCancel)">CANCEL</button>
+                <button class="link ok" (click)="onClick(clickOk)">{{ok}}</button>
+                <button class="link cancel" (click)="onClick(clickCancel)">{{cancel}}</button>
             </div>
         </div>
     </div>
