@@ -64,8 +64,8 @@ fdescribe('SettingsComponent', () => {
       fixture.detectChanges();
       spyOn(component, 'changeSettings');
       spyOn(component, 'saveSettings');
-      expect(fixture.nativeElement.querySelectorAll('label.panel-block').length).toBe(2);
-      const check = fixture.nativeElement.querySelector('label.panel-block input');
+      expect(fixture.nativeElement.querySelectorAll('.option-wrapper').length).toBe(2);
+      const check = fixture.nativeElement.querySelector('.option-wrapper input');
       expect(check.checked).toBeTruthy();
       check.click();
       check.dispatchEvent(new Event('change'));

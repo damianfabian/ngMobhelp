@@ -33,13 +33,13 @@ fdescribe('ModalComponent', () => {
     component.cancel = 'Cancel';
     spyOn(component, 'onClick')
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.modal-component__header h2').innerText).toBe('This is a title');
+    expect(fixture.nativeElement.querySelector('.modal-component__header').innerText).toBe('This is a title');
     expect(fixture.nativeElement.querySelector('.modal-component__text').innerText).toBe('This is a message');
-    expect(fixture.nativeElement.querySelector('.modal-component__actions-ok').innerText).toBe('ACCEPT');
-    expect(fixture.nativeElement.querySelector('.modal-component__actions-cancel').innerText).toBe('CANCEL');
-    fixture.nativeElement.querySelector('.modal-component__actions-ok').click();
+    expect(fixture.nativeElement.querySelector('.modal-component__actions .ok').innerText).toBe('ACCEPT');
+    expect(fixture.nativeElement.querySelector('.modal-component__actions .cancel').innerText).toBe('CANCEL');
+    fixture.nativeElement.querySelector('.modal-component__actions .ok').click();
     expect(component.onClick).toHaveBeenCalledTimes(1);
-    fixture.nativeElement.querySelector('.modal-component__actions-cancel').click()
+    fixture.nativeElement.querySelector('.modal-component__actions .cancel').click()
     expect(component.onClick).toHaveBeenCalledTimes(2);
   });
 
@@ -52,16 +52,14 @@ fdescribe('ModalComponent', () => {
     component.cancel = 'Cancel';
     spyOn(component, 'onClick')
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.modal-component__header h2').innerText).toBe('This is a title');
+    expect(fixture.nativeElement.querySelector('.modal-component__header').innerText).toBe('This is a title');
     expect(fixture.nativeElement.querySelector('.modal-component__text').innerText).toBe('This is a message');
-    expect(fixture.nativeElement.querySelector('.modal-component__actions-ok').innerText).toBe('ACCEPT');
-    expect(fixture.nativeElement.querySelector('.modal-component__actions-cancel').innerText).toBe('CANCEL');
-    fixture.nativeElement.querySelector('.modal-component__actions-ok').click();
+    expect(fixture.nativeElement.querySelector('.modal-component__actions .ok').innerText).toBe('ACCEPT');
+    expect(fixture.nativeElement.querySelector('.modal-component__actions .cancel').innerText).toBe('CANCEL');
+    fixture.nativeElement.querySelector('.modal-component__actions .ok').click();
     expect(component.onClick).toHaveBeenCalledTimes(1);
-    fixture.nativeElement.querySelector('.modal-component__actions-cancel').click();
+    fixture.nativeElement.querySelector('.modal-component__actions .cancel').click();
     expect(component.onClick).toHaveBeenCalledTimes(2);
-    fixture.nativeElement.querySelector('.modal-close').click();
-    expect(component.onClick).toHaveBeenCalledTimes(3);
   });
 
 });

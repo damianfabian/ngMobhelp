@@ -82,7 +82,7 @@ fdescribe('PageViewerComponent', () => {
     expect(fixture.nativeElement.querySelectorAll('.tabs ul li').length).toBe(3)
     expect(fixture.nativeElement.querySelectorAll('.tabs-content .header').length).toBe(1)
 
-    fixture.nativeElement.querySelectorAll('.tabs>ul>li')[1].querySelector('a').click();
+    fixture.nativeElement.querySelectorAll('.tabs ul>li')[1].querySelector('a').click();
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelectorAll('.tabs-content .header').length).toBe(0);
     expect(fixture.nativeElement.querySelectorAll('.tabs-content .content').length).toBe(1)

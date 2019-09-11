@@ -68,7 +68,7 @@ fdescribe('DashboardComponent', () => {
       expect(component.data.length).toBe(1);
       expect(fixture.nativeElement.querySelectorAll('.menu-label').length).toEqual(1);
       expect(fixture.nativeElement.querySelectorAll('.menu-label span')[0].outerText).toEqual(mainSection.title);
-      expect(fixture.nativeElement.querySelectorAll('.menu-list li').length).toEqual(mainSection.pages.length);
+      expect(fixture.nativeElement.querySelectorAll('.icon-text-list li').length).toEqual(mainSection.pages.length);
     })
   }));
 
@@ -92,7 +92,7 @@ fdescribe('DashboardComponent', () => {
     fixture.whenStable().then(() => {
       spyOn(component, 'goToPage');
       fixture.detectChanges();
-      fixture.nativeElement.querySelector('.menu-link').click();
+      fixture.nativeElement.querySelector('.icon-text-list__link').click();
       expect(component.goToPage).toHaveBeenCalledWith(mainSection.pages[0]);
     })
   }));
