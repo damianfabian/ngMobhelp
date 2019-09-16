@@ -80,6 +80,10 @@
                 padding: 0;
             }
             
+            .danger {
+                color: red;
+            }
+            
             .icon-text-list__link {
                 padding: 0.25rem 0;
                 @include tablet {

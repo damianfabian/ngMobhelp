@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CognitoService } from 'src/app/services/cognitoService';
 import { APIService } from 'src/app/services/APIService';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-home',
@@ -11,33 +10,18 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router, private service: APIService, private toastr: ToastrService) { 
+  constructor(private router: Router, private service: APIService) { 
   }
 
   ngOnInit() {
   }
 
   async onContinue() {
-    this.service.getUserInfo().then(userInfo => {
-      if (userInfo && userInfo.preferences && userInfo.preferences.sections.length > 0) {
+    const userInfo = this.service.getUserInfo()
+    if (userInfo && userInfo.preferences && userInfo.preferences.sections.length > 0) {
         this.router.navigate(['dashboard']);
-      } else {
-        this.router.navigate(['wizard']);
-      }
-    }).catch(this.handleError.bind(this));
-  }
-
-  handleError(res) {
-    if (res instanceof Object) {
-      switch (res.errors[0].errorType) {
-          case "UnauthorizedException":
-              this.router.navigate(['/login']);
-          break;
-          default:
-            this.router.navigate(['wizard']);  
-            this.toastr.error(res.errors[0].message, 'Error');
-          break;
-      }
+    } else {
+      this.router.navigate(['wizard']);
     }
   }
 }

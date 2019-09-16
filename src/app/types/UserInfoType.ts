@@ -54,7 +54,6 @@ export type CreateUserInfoMutation = {
 
   export type GetUserInfosQuery = {
     // Key attributes. Changing these may result in unexpected behavior.
-    id: string;
     topics: Array<{
       id: string | null;
       isDone: boolean | null;

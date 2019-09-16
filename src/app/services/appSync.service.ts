@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   providedIn: "root"
 })
 export class AppSyncService {
-  configure(accessToken){
+  configure(accessToken?){
     const awsConfig = Object.assign({}, environment, { graphql_headers: async () => ({ 'Authorization': accessToken }) });
     API.configure(awsConfig);
     PubSub.configure(awsConfig);
