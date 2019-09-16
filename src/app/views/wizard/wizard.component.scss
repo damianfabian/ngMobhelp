@@ -1,52 +1,88 @@
 @import "~src/style/_base.scss";
+@import "~src/style/complex-elements/buttons-group";
+
+// TODO: Settings page has the same styling. Make a generic element of it or make a generic component (settings/wizard).
 .wizard-page {
     height: 100%;
     background-color: #29ade4;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.wizard-page .header {
-    background-color: #29ade4;
-    display: flex;
-    flex-direction: column;
-    border: none;
-    border-bottom: 1px solid white;
-    padding: 0.5em 0.75em;
-}
-.wizard-page .header .title {
-    font-size: 19px;
-    margin: 24px 0 18px;
-}
-.wizard-page .panel-block {
-    border: none;
-}
-.wizard-page .panel-block .control .icon app-icon {
-    width: 12px;
-}
-.wizard-page .panel-block.bottom {
-    bottom: 0;
-}
-.wizard-page .panel-block .label {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-}
-.title,
-.wizard-page .panel-block .label label {
-    text-align: left;
-    font-size: .9rem;
-    color: white;
-    width: 100%;
-}
-.subtitle,
-.wizard-page .panel-block .label span {
-    text-align: left;
-    font-size: .7rem;
-    color: rgba(255, 255, 255, 0.75);
-    width: 100%;
-}
 
-.wizard-page label.panel-block:hover {
-    background-color: transparent;
+    input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        left: 3px;
+    }
+    input::-moz-placeholder { /* Firefox 19+ */
+        left: 3px;
+    }
+    input:-ms-input-placeholder { /* IE 10+ */
+        left: 3px;
+        position: relative;
+    }
+    input:-moz-placeholder { /* Firefox 18- */
+        left: 3px;
+    }
+
+    label.panel-block:hover {
+        background-color: transparent;
+    }
+
+    .control .icon app-icon {
+        width: 12px;
+    }
+
+    .back-title-header {
+        .title {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            @include tablet {
+                margin-top: 4rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+    }
+
+    .content {
+        padding: 0 0.75rem;
+
+        @include tablet {
+            padding: 0;
+        }
+
+        .option-wrapper {
+            margin-bottom: 20px;
+    
+            .option {
+                border: none;
+        
+                label {
+                    text-align: left;
+                    font-size: 0.875rem;
+                    color: white;
+                    width: 100%;
+                    cursor: pointer;
+                    font-weight: normal;
+    
+                    @include tablet {
+                        font-size: 1.25rem;
+                    }
+                }
+        
+                .description {
+                    text-align: left;
+                    font-size: .75rem;
+                    color: rgba(255, 255, 255, 0.75);
+                    width: 100%;
+                    display: block;
+                    font-weight: normal;
+    
+                    @include tablet {
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+
+        }
+        
+        &__actions {
+            @extend %buttons-group;
+        }
+    }   
 }

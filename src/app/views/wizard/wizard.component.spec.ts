@@ -58,8 +58,8 @@ fdescribe('WizardComponent', () => {
       fixture.detectChanges();
       spyOn(component, 'changeSettings');
       spyOn(component, 'saveSettings');
-      expect(fixture.nativeElement.querySelectorAll('label.panel-block').length).toBe(2);
-      const check = fixture.nativeElement.querySelector('label.panel-block input');
+      expect(fixture.nativeElement.querySelectorAll('label.option').length).toBe(2);
+      const check = fixture.nativeElement.querySelector('label.option input');
       check.click();
       check.dispatchEvent(new Event('change'));
       expect(component.changeSettings).toHaveBeenCalled();
