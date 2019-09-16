@@ -6,7 +6,7 @@
             <div class="subtitle">You can change these later</div>
         </div>
         <div class="content">
-            <div class='option-wrapper' *ngFor="let topic of (topics | filter: searcher : 'title'); index as i">
+            <div class='option-wrapper' *ngFor="let topic of topics; index as i">
                 <label class="option">
                     <input
                         id="switchRoundedDefault{{i}}"
