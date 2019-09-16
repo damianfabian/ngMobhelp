@@ -20,4 +20,19 @@
             font-size: 1.875rem;
         }
     }
+
+    .title:not(.is-spaced) + .subtitle {
+        margin-top: 0;
+    }
+
+    .subtitle {
+        color: rgba(255, 255, 255, 0.75);
+        width: 100%;
+        font-size: .7rem;
+        margin: 1.75rem 0 1rem 0;
+
+        @include tablet {
+            font-size: 1.125rem;
+        }
+    }
 }
