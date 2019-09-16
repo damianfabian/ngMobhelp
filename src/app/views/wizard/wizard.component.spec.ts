@@ -45,7 +45,7 @@ fdescribe('WizardComponent', () => {
     appSync = TestBed.get(AppSyncService);
     API = TestBed.get(APIService);
     spyOn(appSync, 'AllSections').and.returnValue(Promise.resolve(<AllSectionsQuery>allSections));
-    spyOn(API, 'getUserInfo').and.returnValue(Promise.resolve(<GetUserInfosQuery>{}));
+    spyOn(API, 'getUserInfo').and.returnValue(<GetUserInfosQuery>{});
     fixture.detectChanges();
   });
 

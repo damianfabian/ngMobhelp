@@ -4,14 +4,6 @@
             <span class="title">Please select which options apply to you</span>
             <span class="subtitle">You can change these later</span>
         </p>
-        <div class="panel-block">
-            <p class="control has-icons-left">
-                <input class="input is-small" type="text" placeholder="search" [(ngModel)]="searcher">
-                <span class="icon is-small is-left">
-                    <app-icon iconsrc="search"></app-icon>
-                </span>
-            </p>
-        </div>
         <label class="panel-block" *ngFor="let topic of (topics | filter: searcher : 'title')">
             <input id="switchRoundedDefault" type="checkbox" name="switchRoundedDefault"
                 class="switch is-rounded .is-rtl" [checked]="topic.checked" (change)="changeSettings($event, topic)">

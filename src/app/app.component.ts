@@ -8,11 +8,11 @@ import { APIService } from './services/APIService';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router, private ApiService: APIService) {
   }
 
   ngOnInit(): void {
-    if(!localStorage.getItem('user')) {
+    if(!this.ApiService.getUserInfo()) {
       this.router.navigate(['/home']);
     } else {
       this.router.navigate(['/dashboard']);

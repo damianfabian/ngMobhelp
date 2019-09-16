@@ -24,8 +24,7 @@ fdescribe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomeComponent ],
-      imports: [ RouterTestingModule.withRoutes(routes), ShareTestModule, ToastrModule.forRoot() ],
-      providers: [ ToastrService ]
+      imports: [ RouterTestingModule.withRoutes(routes), ShareTestModule ]
     })
     .compileComponents();
   }));
@@ -43,7 +42,7 @@ fdescribe('HomeComponent', () => {
   it('should redirect to Dashboard', async(() => {
     const API = TestBed.get(APIService);
     const router = TestBed.get(Router);
-    spyOn(API, 'getUserInfo').and.returnValue(Promise.resolve(mainPreferences));
+    spyOn(API, 'getUserInfo').and.returnValue(mainPreferences);
     spyOn(router, 'navigate');
     fixture.nativeElement.querySelector('.home-component__actions button').click();
     fixture.detectChanges();
@@ -55,7 +54,7 @@ fdescribe('HomeComponent', () => {
   it('should redirect to Wizard', async(() => {
     const API = TestBed.get(APIService);
     const router = TestBed.get(Router);
-    spyOn(API, 'getUserInfo').and.returnValue(Promise.resolve({}));
+    spyOn(API, 'getUserInfo');
     spyOn(router, 'navigate');
     fixture.nativeElement.querySelector('.home-component__actions button').click();
     fixture.detectChanges();
