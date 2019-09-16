@@ -4,7 +4,7 @@
             <span class="title">Please select which options apply to you</span>
             <span class="subtitle">You can change these later</span>
         </p>
-        <label class="panel-block" *ngFor="let topic of (topics | filter: searcher : 'title')">
+        <label class="panel-block" *ngFor="let topic of topics">
             <input id="switchRoundedDefault" type="checkbox" name="switchRoundedDefault"
                 class="switch is-rounded .is-rtl" [checked]="topic.checked" (change)="changeSettings($event, topic)">
             <div class="label">
