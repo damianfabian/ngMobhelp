@@ -22,32 +22,28 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getUserInfo().then(res => {
-      this.userInfo = res;
-
-      // Get all sections available in the BD
-      this.service.getSections().then(res => {
-        // Show only the sections the user has marked
-        this.data = this.userInfo.preferences && this.userInfo.preferences.sections ? 
-          res.filter( section => this.userInfo.preferences.sections.findIndex(pSec => pSec === section.name) >= 0 ).sort((a, b) => a.order - b.order ) : []
-        //Calculate the value per section
-        const sectionValue = 100 / this.userInfo.preferences.sections.length;
-        
-        this.progress = Math.ceil(
-          //Calculate the percentage of progress
-          this.data.reduce((previous, section) => {
-            //Calculate the value per Page
-            const pageValue = sectionValue/section.pages.length
-            //Calculate the value per section depending on the pages marked as Done
-            return previous + section.pages.reduce((valor, page) => {
-              const isDone = this.userInfo.topics && this.userInfo.topics.findIndex(topic => topic.id === page.id && topic.isDone) >= 0
-              return valor + (isDone ? pageValue : 0)
-            }, 0)
+    this.userInfo = this.service.getUserInfo();
+    // Get all sections available in the BD
+    this.service.getSections().then(res => {
+      // Show only the sections the user has marked
+      this.data = this.userInfo.preferences && this.userInfo.preferences.sections ? 
+        res.filter( section => this.userInfo.preferences.sections.findIndex(pSec => pSec === section.name) >= 0 ).sort((a, b) => a.order - b.order ) : []
+      //Calculate the value per section
+      const sectionValue = 100 / this.userInfo.preferences.sections.length;
+      
+      this.progress = Math.ceil(
+        //Calculate the percentage of progress
+        this.data.reduce((previous, section) => {
+          //Calculate the value per Page
+          const pageValue = sectionValue/section.pages.length
+          //Calculate the value per section depending on the pages marked as Done
+          return previous + section.pages.reduce((valor, page) => {
+            const isDone = this.userInfo.topics && this.userInfo.topics.findIndex(topic => topic.id === page.id && topic.isDone) >= 0
+            return valor + (isDone ? pageValue : 0)
           }, 0)
-        );
-      }).catch(res => {
-        this.handleError(res)
-      });
+        }, 0)
+      );
+
     }).catch(res => {
       this.handleError(res)
     });
@@ -55,16 +51,7 @@ export class DashboardComponent implements OnInit {
 
   handleError(res) {
     if(res instanceof Object && res.errors && res.errors.length > 0) {
-        switch (res.errors[0].errorType || res.errors[0].message) {
-          case "UnauthorizedException":
-          case "Request failed with status code 401":
-              this.service.logout();
-              this.router.navigate(['/login']);
-          break;
-          default:
-              this.toastr.error(res.errors[0].message, 'Error');
-          break;
-        }
+        this.toastr.error(res.errors[0].message, 'Error');
     } else {
       console.debug(res);
     }

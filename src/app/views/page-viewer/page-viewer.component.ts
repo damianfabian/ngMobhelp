@@ -32,18 +32,12 @@ export class PageViewerComponent implements OnInit {
   }
 
   onMarkDone() {
-    this.service.markPageAsDone(this.pageInfo).then(res => {
-      this.router.navigate(['dashboard']);
-    }).catch(res => {
-      this.toastr.error(res.errors[0].message, 'Error');
-    })
+    this.service.markPageAsDone(this.pageInfo);
+    this.router.navigate(['dashboard']);
   }
 
   onUnmark() {
-    this.service.unmarkPageAsDone(this.pageInfo).then(res => {
-      this.router.navigate(['dashboard']);
-    }).catch(res => {
-      this.toastr.error(res.errors[0].message, 'Error');
-    })
+    this.service.unmarkPageAsDone(this.pageInfo);
+    this.router.navigate(['dashboard']);
   }
 }

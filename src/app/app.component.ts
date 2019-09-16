@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppSyncService } from './services/appSync.service';
+import { APIService } from './services/APIService';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +8,14 @@ import { AppSyncService } from './services/appSync.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private router: Router, private AppSync: AppSyncService) {
+  constructor(private router: Router, private ApiService: APIService) {
   }
 
   ngOnInit(): void {
-    if(!localStorage || !localStorage.getItem('user')) {
-      this.router.navigate(['/login']);
+    if(!this.ApiService.getUserInfo()) {
+      this.router.navigate(['/home']);
     } else {
-      this.AppSync.configure(localStorage.getItem('token'));
+      this.router.navigate(['/dashboard']);
     }
   }
 }

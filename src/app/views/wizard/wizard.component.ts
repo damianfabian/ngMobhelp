@@ -1,9 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AppSyncService } from 'src/app/services/appSync.service';
 import { APIService } from 'src/app/services/APIService';
-import { ToastrService } from 'ngx-toastr';
-import { GetUserInfosQuery } from 'src/app/types/UserInfoType';
 import { Router } from '@angular/router';
 
 interface SectionSetting {
@@ -19,25 +16,18 @@ interface SectionSetting {
   styleUrls: ['./wizard.component.scss']
 })
 export class WizardComponent implements OnInit {
-  searcher: string;
   topics: Array<SectionSetting>;
-  userInfo: GetUserInfosQuery;
 
   constructor(
-    private appSync: AppSyncService, 
     private service: APIService, 
-    private ref: ChangeDetectorRef, 
-    private toastr: ToastrService,
+    private ref: ChangeDetectorRef,
     private router: Router
   ) {
     ref.detach();
   }
 
   async ngOnInit() {    
-    this.service.getUserInfo().then(res => {
-      this.userInfo = res;
-    });
-    this.appSync.AllSections().then(temp => {
+    this.service.getSections().then(temp => {
       this.topics = temp.map(section => ({ active: false, name: section.name, title: section.title, description: section.description }) );
       this.ref.detectChanges();
     }).catch(res => {
@@ -55,18 +45,13 @@ export class WizardComponent implements OnInit {
   async saveSettings() {
     const preferences = [];
     this.topics.forEach(section => section.active && preferences.push(section.name));
-    this.appSync.UpdateUserInfo({
-      id: this.userInfo.id,
+    const userData = {
       preferences: {
         sections: preferences
       },
-      topics: this.userInfo.topics
-    }).then(() => {
-      this.router.navigate(['dashboard'])
-    }).catch(res => {
-      if(res.errors && res.errors.length > 0) {
-        this.toastr.error(res.errors[0].message, 'Error');
-      }
-    })
+      topics: []
+    }
+    this.service.setUserInfo(userData)
+    this.router.navigate(['/dashboard'])
   }
 }

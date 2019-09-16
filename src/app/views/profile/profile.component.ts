@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { APIService } from 'src/app/services/APIService';
-import { CognitoService } from 'src/app/services/cognitoService';
+import { Router } from '@angular/router';
 import config from '../../config';
 import { Icons, IconsType } from 'src/app/components/icon/icon.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -19,26 +19,19 @@ export class ProfileComponent implements OnInit {
   icons: IconsType;
   handbookUrl: string;
 
-  constructor(private service: APIService, private router: Router, private cognito: CognitoService) {   
+  constructor(private service: APIService, private toastr: ToastrService, private router: Router) {   
   }
 
   ngOnInit() {
-    const cognitoUser = this.cognito.getUserAtributes();
-    this.fullName = cognitoUser.name;
-    this.initials = cognitoUser.name.length >= 2 ? cognitoUser.name.substring(0, 2) : cognitoUser.name[0];
     this.version = config.version;
     this.icons = Icons;
     this.handbookUrl = config.handbookUrl;
   }
 
-  onLogout() {
-    localStorage.removeItem('user');
+  deleteData() {
     this.service.logout();
-    this.router.navigate(['login']);
-  }
-
-  toggleModal() {
-    this.showModal = !this.showModal;
+    this.toastr.success('All your data was remove it.', 'Notification');
+    this.router.navigate(['home']);
   }
 
 }

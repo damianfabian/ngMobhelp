@@ -60,7 +60,7 @@ fdescribe('DashboardComponent', () => {
   });
 
   it('should create dashboard', async(() => {
-    spyOn(API, 'getUserInfo').and.returnValue(Promise.resolve(mainPreferences));
+    spyOn(API, 'getUserInfo').and.returnValue(mainPreferences);
     spyOn(API, 'getSections').and.returnValue(Promise.resolve([mainSection]));
     fixture.detectChanges();
     fixture.whenStable().then(() => {
@@ -86,7 +86,7 @@ fdescribe('DashboardComponent', () => {
   }));
 
   it('should go to pageviewer', async(() => {
-    spyOn(API, 'getUserInfo').and.returnValue(Promise.resolve(mainPreferences));
+    spyOn(API, 'getUserInfo').and.returnValue(mainPreferences);
     spyOn(API, 'getSections').and.returnValue(Promise.resolve([mainSection]));
     fixture.detectChanges();
     fixture.whenStable().then(() => {
@@ -98,7 +98,7 @@ fdescribe('DashboardComponent', () => {
   }));
 
   it('should work isPageDone', async(() => {
-    spyOn(API, 'getUserInfo').and.returnValue(Promise.resolve(mainPreferences));
+    spyOn(API, 'getUserInfo').and.returnValue(mainPreferences);
     spyOn(API, 'getSections').and.returnValue(Promise.resolve([mainSection]));
     fixture.detectChanges();
     fixture.whenStable().then(() => {
