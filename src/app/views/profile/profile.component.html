@@ -10,7 +10,6 @@
                 <img *ngIf="avatar" [src]="avatar" [alt]="fullName" />
                 <span *ngIf="!avatar" class="initials">m</span>
             </div>
-            <h3 class="name">{{fullName}}</h3>
         </div>
     </div>
     <div class="container">
@@ -33,9 +32,9 @@
                             <div class='icon'><app-icon [iconsrc]="icons.helpSupport"></app-icon></div>
                             Help
                         </a>
-                        <a class='icon-text-list__link' (click)="toggleModal()">
+                        <a class='icon-text-list__link danger' (click)="deleteData()">
                                 <div class='icon'><app-icon [iconsrc]="icons.exit"></app-icon></div>
-                            Logout
+                            DELETE DATA
                         </a>
                     </div>
                 </div>

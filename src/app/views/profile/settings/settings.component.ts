@@ -24,11 +24,9 @@ export class SettingsComponent implements OnInit {
   icons: IconsType;
 
   constructor(
-    private appSync: AppSyncService,
     private service: APIService, 
     private ref: ChangeDetectorRef, 
-    private toastr: ToastrService,
-    private router: Router
+    private toastr: ToastrService
   ) {
     ref.detach();
     this.handleError = this.handleError.bind(this);
@@ -36,32 +34,19 @@ export class SettingsComponent implements OnInit {
   }
 
   async ngOnInit() {    
-    this.service.getUserInfo().then(res => {
-      this.userInfo = res;
-      this.appSync.AllSections().then(temp => {
-        this.topics = temp.map(section => {
-          const isActive = res.preferences && res.preferences.sections ? res.preferences.sections.findIndex(item => item === section.name) >= 0 : false
-          return { active: isActive, name: section.name, title: section.title, description: section.description }
-        });
-        this.ref.detectChanges();
-      }).catch(this.handleError);
+    this.userInfo = this.service.getUserInfo();
+    this.service.getSections().then(temp => {
+      this.topics = temp.map(section => {
+        const isActive = this.userInfo.preferences && this.userInfo.preferences.sections ? this.userInfo.preferences.sections.findIndex(item => item === section.name) >= 0 : false
+        return { active: isActive, name: section.name, title: section.title, description: section.description }
+      });
+      this.ref.detectChanges();
     }).catch(this.handleError);
   }
 
   handleError(res) {
     if(res instanceof Object) {
-      if(res.errors.length > 0) {
-        switch (res.errors[0].errorType || res.errors[0].message) {
-          case "UnauthorizedException":
-          case "Request failed with status code 401":
-              this.service.logout();
-              this.router.navigate(['/login']);
-          break;
-          default:
-              this.toastr.error(res.errors[0].message, 'Error');
-          break;
-        }
-      }
+      this.toastr.error(res.errors[0].message, 'Error');
     } else {
       console.debug(res);
     }
@@ -82,18 +67,13 @@ export class SettingsComponent implements OnInit {
   async saveSettings() {
     const preferences = [];
     this.topics.forEach(section => section.active && preferences.push(section.name));
-    this.appSync.UpdateUserInfo({
-      id: this.userInfo.id,
+    const userData = {
       preferences: {
         sections: preferences
       },
       topics: this.userInfo.topics
-    }).then(() => {
-      this.toastr.success("Settings has been saved!", "Notification", { timeOut: 2000 });
-    }).catch(res => {
-      if(res.errors && res.errors.length > 0) {
-        this.toastr.error(res.errors[0].message, 'Error');
-      }
-    })
+    }
+    this.service.setUserInfo(userData);
+    this.toastr.success("Settings has been saved!", "Notification", { timeOut: 2000 });
   }
 }

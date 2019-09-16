@@ -7,17 +7,8 @@
             </a>
             <div class="title">Settings</div>
         </div>
-
-        <!-- <div class="control has-icons-left">
-            <input type="text" placeholder="search" (input)="onSearch($event)">
-            <span class="icon is-small is-left">
-                <app-icon iconsrc="search"></app-icon>
-            </span>
-        </div> -->
-
-
         <div class="content">
-            <div class='option-wrapper' *ngFor="let topic of (topics | filter: searcher : 'title'); index as i">
+            <div class='option-wrapper' *ngFor="let topic of topics; index as i">
                 <label class="option">
                     <input
                         id="switchRoundedDefault{{i}}"
