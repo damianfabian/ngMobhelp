@@ -1,6 +1,7 @@
 @import "~src/style/_base.scss";
 @import "~src/style/complex-elements/buttons-group";
 
+// TODO: Settings page has the same styling. Make a generic element of it or make a generic component (settings/wizard).
 .wizard-page {
     height: 100%;
     background-color: #29ade4;
