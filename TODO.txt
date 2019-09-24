@@ -1,7 +1,7 @@
 STYLING
 
 Dashboard:
-  [ ] What image to show on the top of the screen? Right now there is a grey rectangle in Zeplin.
+  [x] What image to show on the top of the screen? Right now there is a grey rectangle in Zeplin.
 
 Tabs content:
   Docs tab
@@ -27,8 +27,8 @@ Profile pages:
   [x] Help
   [x] Useful Links
   [x] Settings
-  [ ] Settings has no "Save" button?
-  [ ] No Zeplin designs for "Employee Handbook"
+  [x] Settings has no "Save" button?
+  [x] No Zeplin designs for "Employee Handbook"
 
 [x] Logout dialog popup
 [x] What happened to login page styles?
