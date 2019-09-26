@@ -1,0 +1,18 @@
+<div class="cookie-gdpr notification is-primary" *ngIf="showAlert">
+    <div class="container">
+            <p>This website stores cookies on your computer. These cookies are used to improve your website and provide more personalized services to you, both on this website and through other media. To find out more about the cookies we use, see our Privacy Policy.</p>
+            <p>We won't track your information when you visit our site: therefore, you will keep seeing this message every visit if you do not choose to accept or decline.</p>
+        <div class="field is-grouped">
+            <p class="control">
+                <button class="mobutton accept" (click)="onAccept()">
+                    Accept
+                </button>
+            </p>
+            <p class="control">
+                <button class="mobutton decline" (click)="onDecline()">
+                    Decline
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
