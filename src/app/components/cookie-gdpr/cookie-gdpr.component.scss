@@ -1,0 +1,28 @@
+@import '../../../style/base';
+.cookie-gdpr {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    left: 0;
+    width: 100vw;
+    border-radius: 0;
+    font-size: .8rem;
+
+    .control {
+        flex-basis: 50%;
+    }
+    .field {
+        margin-top: 1rem;
+    }
+    button {
+        box-shadow: none;
+        padding: .75rem 3rem;
+    }
+    .accept {
+        background-color: $white;
+        color: $primary;
+    }
+    .decline {
+        border-color: $white;
+    }
+}

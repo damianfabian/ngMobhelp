@@ -7,10 +7,12 @@ import { CognitoService } from './services/cognitoService';
 import { APIService } from './services/APIService';
 import { AppSyncService } from './services/appSync.service';
 import { ApplicationPipesModule } from './shareModules/app.share.module';
+import { CookieGdprComponent } from './components/cookie-gdpr/cookie-gdpr.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CookieGdprComponent
   ],
   imports: [
     BrowserAnimationsModule,

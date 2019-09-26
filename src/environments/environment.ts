@@ -17,7 +17,8 @@ export const environment = {
     "userPoolId": "eu-xxxxxx-1_xxxxx",
     "userPoolWebClientId": "xxxxxxxxxxxx"
   },
-  production: false
+  production: false,
+  GDPR_COOKIE_KEY: 'GDPR-ALLOW_COOKIES'
 };
 
 /*
