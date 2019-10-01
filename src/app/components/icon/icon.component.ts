@@ -30,7 +30,8 @@ const ICON_SET = [
   "backReverse", 
   "profile", 
   "search", 
-  "check"
+  "check",
+  "next"
 ]
 @Component({
   selector: 'app-icon',
